@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Công Ty TNHH Nhật Thắng</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; color: #333; }
+    header { background-color: #1A3D7C; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+    header a { color: white; margin-left: 20px; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    .banner { background: url('https://via.placeholder.com/1500x500') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; background-color: #1A3D7C; }
+    .banner h1 { font-size: 2.5em; margin-bottom: 10px; }
+    .banner p { font-size: 1.2em; }
+    .btn { background-color: #D62828; color: white; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; }
+
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card h3 { margin-top: 0; }
+    .contact a { display: block; margin: 10px 0; color: #1A3D7C; }
+
+    footer { background-color: #1A3D7C; color: white; text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong>Nhật Thắng</strong></div>
+  <nav>
+    <a href="#gioithieu">Giới thiệu</a>
+    <a href="#sanpham">Sản phẩm</a>
+    <a href="#dichvu">Dịch vụ</a>
+    <a href="#lienhe">Liên hệ</a>
+  </nav>
+</header>
+
+<div class="banner">
+  <h1>Công Ty TNHH Nhật Thắng</h1>
+  <p>Uy tín trong ngành sắt thép từ năm 2004</p>
+  <a href="#lienhe" class="btn">Liên hệ ngay</a>
+</div>
+
+<section id="gioithieu">
+  <h2>Giới thiệu</h2>
+  <p>Thành lập từ năm 2004, Công Ty TNHH Nhật Thắng chuyên cung cấp các loại thép xây dựng, thép công trình và phụ kiện sắt thép với chất lượng cao, giá cả cạnh tranh và dịch vụ tận tâm. Chúng tôi phục vụ đa dạng khách hàng từ đóng tàu, nhà xưởng đến công trình dân dụng.</p>
+</section>
+
+<section id="sanpham">
+  <h2>Sản phẩm</h2>
+  <div class="product-grid">
+    <div class="card">
+      <h3>Thép tấm</h3>
+      <p>Đủ kích thước, cắt theo yêu cầu</p>
+    </div>
+    <div class="card">
+      <h3>Thép hình U, I, V, H</h3>
+      <p>Thép hình cán nóng chất lượng cao</p>
+    </div>
+    <div class="card">
+      <h3>Ống thép</h3>
+      <p>Tròn, vuông, chữ nhật đủ kích cỡ</p>
+    </div>
+    <div class="card">
+      <h3>Phụ kiện sắt thép</h3>
+      <p>Van, mặt bích, cút, tê...</p>
+    </div>
+  </div>
+</section>
+
+<section id="dichvu">
+  <h2>Dịch vụ</h2>
+  <ul>
+    <li>Cắt sắt thép theo kích thước</li>
+    <li>Đục/khoan lỗ theo yêu cầu</li>
+    <li>Vận chuyển toàn quốc</li>
+  </ul>
+</section>
+
+<section id="lienhe">
+  <h2>Liên hệ</h2>
+  <div class="contact">
+    <a href="tel:0901234567">📞 Gọi: 0901 234 567</a>
+    <a href="mailto:info@nhatthang.com">📧 Gửi Email: info@nhatthang.com</a>
+    <a href="https://zalo.me/84901234567" target="_blank">💬 Chat Zalo</a>
+    <a href="https://facebook.com/nhatthangsteel" target="_blank">👍 Fanpage Facebook</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2004 - 2025 Công Ty TNHH Nhật Thắng. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
