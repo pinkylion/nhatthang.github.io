@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Công Ty TNHH Nhật Thắng</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; color: #333; }
+    header { background-color: #1A3D7C; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    header a { color: white; margin-left: 20px; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .lang-toggle { margin-left: 20px; background: white; color: #1A3D7C; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+
+    .banner { background: url('https://via.placeholder.com/1500x500') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; background-color: #1A3D7C; }
+    .banner h1 { font-size: 2.5em; margin-bottom: 10px; }
+    .banner p { font-size: 1.2em; }
+    .btn { background-color: #D62828; color: white; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; }
+
+    .carousel { display: flex; overflow: hidden; max-width: 100%; position: relative; height: 300px; }
+    .carousel img { min-width: 100%; transition: transform 1s ease; height: 300px; object-fit: cover; }
+
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card h3 { margin-top: 0; }
+    .contact a { display: block; margin: 10px 0; color: #1A3D7C; }
+
+    footer { background-color: #1A3D7C; color: white; text-align: center; padding: 20px; }
+
+    .popup { display: none; position: fixed; bottom: 20px; right: 20px; background: #1A3D7C; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 999; }
+    .popup a { color: #FFD700; text-decoration: none; display: block; margin: 5px 0; }
+    .popup button { margin-top: 10px; padding: 5px 10px; background: white; color: #1A3D7C; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong>Nhật Thắng</strong></div>
+  <nav>
+    <a href="#gioithieu">Giới thiệu</a>
+    <a href="#sanpham">Sản phẩm</a>
+    <a href="#dichvu">Dịch vụ</a>
+    <a href="#lienhe">Liên hệ</a>
+  </nav>
+  <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+</header>
+
+<div class="banner">
+  <h1 data-lang="vi">Công Ty TNHH Nhật Thắng</h1>
+  <h1 data-lang="en" style="display:none;">Nhat Thang Co., Ltd.</h1>
+  <p data-lang="vi">Uy tín trong ngành sắt thép từ năm 2004</p>
+  <p data-lang="en" style="display:none;">Trusted in the steel industry since 2004</p>
+  <a href="#lienhe" class="btn" data-lang="vi">Liên hệ ngay</a>
+  <a href="#lienhe" class="btn" style="display:none;" data-lang="en">Contact Us</a>
+</div>
+
+<div class="carousel" id="carousel">
+  <img src="https://via.placeholder.com/1500x300/1A3D7C/ffffff?text=Hinh+1" alt="Slide 1">
+  <img src="https://via.placeholder.com/1500x300/264653/ffffff?text=Hinh+2" alt="Slide 2">
+  <img src="https://via.placeholder.com/1500x300/2A9D8F/ffffff?text=Hinh+3" alt="Slide 3">
+</div>
+
+<section id="gioithieu">
+  <h2 data-lang="vi">Giới thiệu</h2>
+  <h2 data-lang="en" style="display:none;">About Us</h2>
+  <p data-lang="vi">Thành lập từ năm 2004, Công Ty TNHH Nhật Thắng chuyên cung cấp các loại thép xây dựng, thép công trình và phụ kiện sắt thép với chất lượng cao, giá cả cạnh tranh và dịch vụ tận tâm.</p>
+  <p data-lang="en" style="display:none;">Established in 2004, Nhat Thang Co., Ltd. specializes in construction steel, industrial steel, and accessories with high quality, competitive pricing, and dedicated service.</p>
+</section>
+
+<section id="sanpham">
+  <h2 data-lang="vi">Sản phẩm</h2>
+  <h2 data-lang="en" style="display:none;">Products</h2>
+  <div class="product-grid">
+    <div class="card">
+      <h3>Thép tấm / Steel Plate</h3>
+      <p data-lang="vi">Đủ kích thước, cắt theo yêu cầu</p>
+      <p data-lang="en" style="display:none;">Custom-sized steel plates</p>
+    </div>
+    <div class="card">
+      <h3>Thép hình U, I, V, H</h3>
+      <p data-lang="vi">Thép hình cán nóng chất lượng cao</p>
+      <p data-lang="en" style="display:none;">Hot-rolled structural steel</p>
+    </div>
+    <div class="card">
+      <h3>Ống thép / Steel Pipes</h3>
+      <p data-lang="vi">Tròn, vuông, chữ nhật đủ kích cỡ</p>
+      <p data-lang="en" style="display:none;">Round, square, rectangular sizes</p>
+    </div>
+    <div class="card">
+      <h3>Phụ kiện sắt thép / Accessories</h3>
+      <p data-lang="vi">Van, mặt bích, cút, tê...</p>
+      <p data-lang="en" style="display:none;">Valves, flanges, elbows, tees...</p>
+    </div>
+  </div>
+</section>
+
+<section id="dichvu">
+  <h2 data-lang="vi">Dịch vụ</h2>
+  <h2 data-lang="en" style="display:none;">Services</h2>
+  <ul>
+    <li data-lang="vi">Cắt sắt thép theo kích thước</li>
+    <li data-lang="en" style="display:none;">Custom steel cutting</li>
+    <li data-lang="vi">Đục/khoan lỗ theo yêu cầu</li>
+    <li data-lang="en" style="display:none;">Drilling and punching</li>
+    <li data-lang="vi">Vận chuyển toàn quốc</li>
+    <li data-lang="en" style="display:none;">Nationwide delivery</li>
+  </ul>
+</section>
+
+<section id="lienhe">
+  <h2 data-lang="vi">Liên hệ</h2>
+  <h2 data-lang="en" style="display:none;">Contact</h2>
+  <div class="contact">
+    <a href="tel:0901234567">📞 0901 234 567</a>
+    <a href="mailto:info@nhatthang.com">📧 info@nhatthang.com</a>
+    <a href="https://zalo.me/84901234567" target="_blank">💬 Zalo</a>
+    <a href="https://facebook.com/nhatthangsteel" target="_blank">👍 Facebook</a>
+  </div>
+</section>
+
+<div class="popup" id="contact-popup">
+  <p data-lang="vi">Cần hỗ trợ? Liên hệ với chúng tôi ngay!</p>
+  <p data-lang="en" style="display:none;">Need help? Contact us now!</p>
+  <a href="https://zalo.me/84901234567" target="_blank">Zalo</a>
+  <a href="https://facebook.com/nhatthangsteel" target="_blank">Facebook</a>
+  <a href="tel:0901234567">Gọi 0901 234 567</a>
+  <button onclick="document.getElementById('contact-popup').style.display='none'">Đóng</button>
+</div>
+
+<footer>
+  <p>&copy; 2004 - 2025 Công Ty TNHH Nhật Thắng. All rights reserved.</p>
+</footer>
+
+<script>
+let currentIndex = 0;
+const images = document.querySelectorAll('#carousel img');
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % images.length;
+  images.forEach((img, idx) => {
+    img.style.transform = `translateX(-${currentIndex * 100}%)`;
+  });
+}, 3000);
+
+function toggleLanguage() {
+  const viElements = document.querySelectorAll('[data-lang="vi"]');
+  const enElements = document.querySelectorAll('[data-lang="en"]');
+  const isVietnamese = viElements[0].style.display !== 'none';
+  viElements.forEach(el => el.style.display = isVietnamese ? 'none' : '');
+  enElements.forEach(el => el.style.display = isVietnamese ? '' : 'none');
+}
+
+setTimeout(() => {
+  document.getElementById('contact-popup').style.display = 'block';
+}, 10000);
+</script>
+
+</body>
+</html>
