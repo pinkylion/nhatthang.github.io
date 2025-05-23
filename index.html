@@ -3,13 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Công Ty TNHH Nhật Thắng</title>
+  <title>Nhật Thắng</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; color: #333; }
-    header { background-color: #1A3D7C; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    header a { color: white; margin-left: 20px; text-decoration: none; }
+    header { background-color: #1A3D7C; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
+    header a { color: white; margin-left: 20px; text-decoration: none; position: relative; }
     nav a:hover { text-decoration: underline; }
     .lang-toggle { margin-left: 20px; background: white; color: #1A3D7C; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold; }
+
+    .logo-title { display: flex; align-items: center; gap: 10px; }
+    .logo-title img { height: 40px; }
+
+    nav { position: relative; }
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      color: #1A3D7C;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: #1A3D7C;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
     .banner { background: url('https://via.placeholder.com/1500x500') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; background-color: #1A3D7C; }
     .banner h1 { font-size: 2.5em; margin-bottom: 10px; }
@@ -23,9 +50,11 @@
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
     .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     .card h3 { margin-top: 0; }
-    .contact a { display: block; margin: 10px 0; color: #1A3D7C; }
 
-    footer { background-color: #1A3D7C; color: white; text-align: center; padding: 20px; }
+    footer { background-color: #1A3D7C; color: white; padding: 40px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; }
+    .footer-info { max-width: 45%; line-height: 1.6; }
+    .footer-info a { color: #FFD700; text-decoration: none; }
+    .footer-bottom { display: flex; justify-content: space-between; width: 100%; margin-top: 30px; font-size: 0.9em; }
 
     .popup { display: none; position: fixed; bottom: 20px; right: 20px; background: #1A3D7C; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 999; }
     .popup a { color: #FFD700; text-decoration: none; display: block; margin: 5px 0; }
@@ -35,29 +64,42 @@
 <body>
 
 <header>
-  <div><strong>Nhật Thắng</strong></div>
+  <div class="logo-title">
+    <img src="images/logo cong ty Nhat Thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
+    <strong>Công Ty TNHH Nhật Thắng</strong>
+  </div>
   <nav>
+    <a href="index.html">Trang chủ</a>
     <a href="#gioithieu">Giới thiệu</a>
-    <a href="#sanpham">Sản phẩm</a>
+    <div class="dropdown">
+      <a href="#sanpham">Sản phẩm ▾</a>
+      <div class="dropdown-content">
+        <a href="#thepong">Thép Ống</a>
+        <a href="#thephop">Thép Hộp</a>
+        <a href="#thephinh">Thép Hình</a>
+        <a href="#theptam">Thép Tấm</a>
+        <a href="#luoi">Lưới</a>
+        <a href="#phukien">Phụ Kiện</a>
+      </div>
+    </div>
     <a href="#dichvu">Dịch vụ</a>
-    <a href="#lienhe">Liên hệ</a>
   </nav>
-  <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+  <button class="lang-toggle" onclick="toggleLanguage()" id="lang-toggle">EN</button>
 </header>
 
 <div class="banner">
-  <h1 data-lang="vi">Công Ty TNHH Nhật Thắng</h1>
-  <h1 data-lang="en" style="display:none;">Nhat Thang Co., Ltd.</h1>
+  <h1 data-lang="vi">Nhật Thắng</h1>
+  <h1 data-lang="en" style="display:none;">Nhat Thang</h1>
   <p data-lang="vi">Uy tín trong ngành sắt thép từ năm 2004</p>
   <p data-lang="en" style="display:none;">Trusted in the steel industry since 2004</p>
-  <a href="#lienhe" class="btn" data-lang="vi">Liên hệ ngay</a>
-  <a href="#lienhe" class="btn" style="display:none;" data-lang="en">Contact Us</a>
 </div>
 
 <div class="carousel" id="carousel">
-  <img src="https://via.placeholder.com/1500x300/1A3D7C/ffffff?text=Hinh+1" alt="Slide 1">
-  <img src="https://via.placeholder.com/1500x300/264653/ffffff?text=Hinh+2" alt="Slide 2">
-  <img src="https://via.placeholder.com/1500x300/2A9D8F/ffffff?text=Hinh+3" alt="Slide 3">
+  <img src="https://via.placeholder.com/1500x300?text=Slide+1" alt="Slide 1">
+  <img src="https://via.placeholder.com/1500x300?text=Slide+2" alt="Slide 2">
+  <img src="https://via.placeholder.com/1500x300?text=Slide+3" alt="Slide 3">
+  <img src="https://via.placeholder.com/1500x300?text=Slide+4" alt="Slide 4">
+  <img src="https://via.placeholder.com/1500x300?text=Slide+5" alt="Slide 5">
 </div>
 
 <section id="gioithieu">
@@ -71,26 +113,12 @@
   <h2 data-lang="vi">Sản phẩm</h2>
   <h2 data-lang="en" style="display:none;">Products</h2>
   <div class="product-grid">
-    <div class="card">
-      <h3>Thép tấm / Steel Plate</h3>
-      <p data-lang="vi">Đủ kích thước, cắt theo yêu cầu</p>
-      <p data-lang="en" style="display:none;">Custom-sized steel plates</p>
-    </div>
-    <div class="card">
-      <h3>Thép hình U, I, V, H</h3>
-      <p data-lang="vi">Thép hình cán nóng chất lượng cao</p>
-      <p data-lang="en" style="display:none;">Hot-rolled structural steel</p>
-    </div>
-    <div class="card">
-      <h3>Ống thép / Steel Pipes</h3>
-      <p data-lang="vi">Tròn, vuông, chữ nhật đủ kích cỡ</p>
-      <p data-lang="en" style="display:none;">Round, square, rectangular sizes</p>
-    </div>
-    <div class="card">
-      <h3>Phụ kiện sắt thép / Accessories</h3>
-      <p data-lang="vi">Van, mặt bích, cút, tê...</p>
-      <p data-lang="en" style="display:none;">Valves, flanges, elbows, tees...</p>
-    </div>
+    <div class="card"><h3>Thép Tấm</h3></div>
+    <div class="card"><h3>Thép Hình</h3></div>
+    <div class="card"><h3>Thép Ống</h3></div>
+    <div class="card"><h3>Thép Hộp</h3></div>
+    <div class="card"><h3>Lưới</h3></div>
+    <div class="card"><h3>Phụ Kiện</h3></div>
   </div>
 </section>
 
@@ -107,51 +135,47 @@
   </ul>
 </section>
 
-<section id="lienhe">
-  <h2 data-lang="vi">Liên hệ</h2>
-  <h2 data-lang="en" style="display:none;">Contact</h2>
-  <div class="contact">
-    <a href="tel:0901234567">📞 0901 234 567</a>
-    <a href="mailto:info@nhatthang.com">📧 info@nhatthang.com</a>
-    <a href="https://zalo.me/84901234567" target="_blank">💬 Zalo</a>
-    <a href="https://facebook.com/nhatthangsteel" target="_blank">👍 Facebook</a>
+<footer>
+  <div class="footer-info">
+    <h3>Công Ty TNHH Nhật Thắng</h3>
+    <p>📍 665 Đường 30 tháng 4, Phường Rạch Dừa, Thành Phố Vũng Tàu</p>
+    <p>📧 <a href="mailto:nhatthangvt@gamil.com">nhatthangvt@gamil.com</a></p>
+    <p>📞 0812738838 | 0903842182 | 0908010304</p>
   </div>
-</section>
+  <div class="footer-bottom">
+    <div class="footer-hours">⏰ Thứ 2 - Thứ 7: 7:00–11:30 & 13:00–17:00</div>
+    <div class="footer-copy">© 2004 - 2025 Công Ty TNHH Nhật Thắng. All rights reserved.</div>
+  </div>
+</footer>
 
 <div class="popup" id="contact-popup">
-  <p data-lang="vi">Cần hỗ trợ? Liên hệ với chúng tôi ngay!</p>
-  <p data-lang="en" style="display:none;">Need help? Contact us now!</p>
+  <p>Cần hỗ trợ? Liên hệ với chúng tôi ngay!</p>
   <a href="https://zalo.me/84901234567" target="_blank">Zalo</a>
   <a href="https://facebook.com/nhatthangsteel" target="_blank">Facebook</a>
-  <a href="tel:0901234567">Gọi 0901 234 567</a>
+  <a href="tel:0903842182">Gọi 0903 842 182</a>
   <button onclick="document.getElementById('contact-popup').style.display='none'">Đóng</button>
 </div>
 
-<footer>
-  <p>&copy; 2004 - 2025 Công Ty TNHH Nhật Thắng. All rights reserved.</p>
-</footer>
-
 <script>
-let currentIndex = 0;
-const images = document.querySelectorAll('#carousel img');
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % images.length;
-  images.forEach((img, idx) => {
-    img.style.transform = `translateX(-${currentIndex * 100}%)`;
-  });
-}, 3000);
-
 function toggleLanguage() {
   const viElements = document.querySelectorAll('[data-lang="vi"]');
   const enElements = document.querySelectorAll('[data-lang="en"]');
-  const isVietnamese = viElements[0].style.display !== 'none';
+  const isVietnamese = viElements[0] && viElements[0].style.display !== 'none';
   viElements.forEach(el => el.style.display = isVietnamese ? 'none' : '');
   enElements.forEach(el => el.style.display = isVietnamese ? '' : 'none');
+  document.getElementById('lang-toggle').textContent = isVietnamese ? 'VI' : 'EN';
 }
 
 setTimeout(() => {
   document.getElementById('contact-popup').style.display = 'block';
 }, 10000);
+
+const carousel = document.getElementById('carousel');
+let index = 0;
+setInterval(() => {
+  index = (index + 1) % carousel.children.length;
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+}, 3000);
 </script>
 
 </body>
