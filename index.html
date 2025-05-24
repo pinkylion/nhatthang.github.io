@@ -51,10 +51,77 @@
     .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     .card h3 { margin-top: 0; }
 
-    footer { background-color: #1A3D7C; color: white; padding: 40px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; }
-    .footer-info { max-width: 45%; line-height: 1.6; }
-    .footer-info a { color: #FFD700; text-decoration: none; }
-    .footer-bottom { display: flex; justify-content: space-between; width: 100%; margin-top: 30px; font-size: 0.9em; }
+    /* BẮT ĐẦU PHẦN CSS MỚI CHO FOOTER */
+
+footer {
+  background-color: #1A3D7C;
+  color: white;
+  padding: 30px 20px 20px 20px; /* Giảm padding dưới một chút vì có thêm khung bản quyền */
+}
+
+.footer-main-content {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+  justify-content: space-between;
+  gap: 20px; /* Khoảng cách giữa các khối nếu chúng xuống dòng */
+  margin-bottom: 30px; /* Khoảng cách với phần bản quyền */
+}
+
+.footer-branding {
+  flex-grow: 1; /* Cho phép khối này phát triển */
+  flex-basis: 30%; /* Chiếm khoảng 1/3, có thể điều chỉnh */
+  min-width: 250px; /* Độ rộng tối thiểu trước khi wrap */
+  display: flex; /* Để logo và tên công ty có thể căn chỉnh */
+  flex-direction: column; /* Sắp xếp logo trên tên công ty */
+}
+
+.footer-logo {
+  height: 50px; /* Điều chỉnh kích thước logo nếu cần */
+  width: auto; /* Giữ tỷ lệ logo */
+  margin-bottom: 10px;
+  object-fit: contain; /* Đảm bảo logo hiển thị đầy đủ */
+  align-self: flex-start; /* Căn logo sang trái */
+}
+
+.footer-branding h3 {
+  margin: 0;
+  font-size: 1.25em; /* Điều chỉnh kích thước chữ */
+  line-height: 1.3;
+}
+
+.footer-contact-details {
+  flex-grow: 2; /* Cho phép khối này phát triển, lớn hơn branding */
+  flex-basis: 60%; /* Chiếm khoảng 2/3, có thể điều chỉnh */
+  min-width: 300px; /* Độ rộng tối thiểu */
+  line-height: 1.7;
+}
+
+.footer-contact-details p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.footer-contact-details a {
+  color: #FFD700; /* Màu vàng cho link như cũ */
+  text-decoration: none;
+}
+
+.footer-contact-details a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright-bar {
+  border: 2px solid red;
+  background-color: #1A3D7C; /* Giữ nền của footer */
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9em;
+  /* margin-top đã được xử lý bằng margin-bottom của .footer-main-content */
+}
+
+.footer-copyright-bar p {
+  margin: 0;
+}
 
     .popup { display: none; position: fixed; bottom: 20px; right: 20px; background: #1A3D7C; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 999; }
     .popup a { color: #FFD700; text-decoration: none; display: block; margin: 5px 0; }
@@ -136,15 +203,19 @@
 </section>
 
 <footer>
-  <div class="footer-info">
-    <h3>Công Ty TNHH Nhật Thắng</h3>
-    <p>📍 665 Đường 30 tháng 4, Phường Rạch Dừa, Thành Phố Vũng Tàu</p>
-    <p>📧 <a href="mailto:nhatthangvt@gamil.com">nhatthangvt@gamil.com</a></p>
-    <p>📞 0812738838 | 0903842182 | 0908010304</p>
+  <div class="footer-main-content">
+    <div class="footer-branding">
+      <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng" class="footer-logo">
+      <h3>Công Ty TNHH Nhật Thắng</h3>
+    </div>
+    <div class="footer-contact-details">
+      <p>📍 665 Đường 30 tháng 4, Phường Rạch Dừa, Thành Phố Vũng Tàu</p>
+      <p>📧 <a href="mailto:nhatthangvt@gamil.com">nhatthangvt@gamil.com</a></p>
+      <p>📞 0812738838 | 0903842182 | 0908010304</p>
+    </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-hours">⏰ Thứ 2 - Thứ 7: 7:00–11:30 & 13:00–17:00</div>
-    <div class="footer-copy">© 2004 - 2025 Công Ty TNHH Nhật Thắng. All rights reserved.</div>
+  <div class="footer-copyright-bar">
+    <p>© 2004 - 2025 Công Ty TNHH Nhật Thắng. All rights reserved.</p>
   </div>
 </footer>
 
