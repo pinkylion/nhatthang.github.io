@@ -1,23 +1,16 @@
-function toggleLanguage() {
-  const current = document.getElementById('lang-toggle').innerText;
-  const viElements = document.querySelectorAll('[data-lang="vi"]');
-  const enElements = document.querySelectorAll('[data-lang="en"]');
+document.getElementById('lang-toggle').addEventListener('click', function () {
+  const currentLang = this.textContent;
+  const newLang = currentLang === 'EN' ? 'VI' : 'EN';
+  this.textContent = newLang;
 
-  if (current === 'EN') {
-    viElements.forEach(el => el.style.display = 'none');
-    enElements.forEach(el => el.style.display = '');
-    document.getElementById('lang-toggle').innerText = 'VI';
+  const elementsVi = document.querySelectorAll('[data-lang="vi"]');
+  const elementsEn = document.querySelectorAll('[data-lang="en"]');
+
+  if (newLang === 'VI') {
+    elementsVi.forEach(el => el.style.display = 'block');
+    elementsEn.forEach(el => el.style.display = 'none');
   } else {
-    enElements.forEach(el => el.style.display = 'none');
-    viElements.forEach(el => el.style.display = '');
-    document.getElementById('lang-toggle').innerText = 'EN';
+    elementsVi.forEach(el => el.style.display = 'none');
+    elementsEn.forEach(el => el.style.display = 'block');
   }
-}
-
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
-
-setTimeout(() => {
-  document.getElementById('popup').style.display = 'flex';
-}, 5000);
+});
