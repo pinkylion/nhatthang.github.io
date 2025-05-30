@@ -1,80 +1,92 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nhật Thắng</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhật Thắng Steel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <div class="logo-title">
-      <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng" width="80" />
-      <strong class="company-name">Công Ty TNHH Nhật Thắng</strong>
+    <div class="logo">
+      <img src="images/logo-nhat-thang.webp" alt="Logo Nhật Thắng">
     </div>
     <nav>
-      <a href="index.html">Trang chủ</a>
-      <a href="#gioithieu">Giới thiệu</a>
-      <div class="dropdown">
-        <a href="#sanpham">Sản phẩm ▾</a>
-        <div class="dropdown-content">
-          <a href="#thepong">Thép Ống</a>
-          <a href="#thephop">Thép Hộp</a>
-          <a href="#thephinh">Thép Hình</a>
-          <a href="#theptam">Thép Tấm</a>
-          <a href="#theplap">Thép Láp</a>
-          <a href="#inox">Inox</a>
-          <a href="#luoi">Lưới</a>
-          <a href="#phukien">Phụ Kiện</a>
-        </div>
-      </div>
-      <a href="#dichvu">Dịch vụ</a>
+      <ul class="menu">
+        <li><a href="#gioithieu">Giới thiệu</a></li>
+        <li><a href="#sanpham">Sản phẩm</a></li>
+        <li><a href="#dichvu">Dịch vụ</a></li>
+        <li><a href="#lienhe">Liên hệ</a></li>
+      </ul>
     </nav>
-    <button class="lang-toggle" onclick="toggleLanguage()" id="lang-toggle">EN</button>
+    <button id="lang-toggle">EN</button>
   </header>
 
-  <div class="banner">
-    <h1 data-lang="vi">Nhật Thắng</h1>
-    <h1 data-lang="en" style="display:none;">Nhat Thang</h1>
-    <p data-lang="vi">Uy tín trong ngành sắt thép từ năm 2004</p>
-    <p data-lang="en" style="display:none;">Trusted in the steel industry since 2004</p>
-  </div>
+  <section class="banner">
+    <h1 data-lang="vi">Chào mừng đến với Nhật Thắng</h1>
+    <h1 data-lang="en" style="display:none">Welcome to Nhat Thang</h1>
+    <p data-lang="vi">Chuyên cung cấp sắt thép chất lượng toàn quốc</p>
+    <p data-lang="en" style="display:none">Specialized in quality steel nationwide</p>
+  </section>
 
-  <div class="carousel" id="carousel">
-    <img src="https://via.placeholder.com/1500x300?text=Slide+1" alt="Slide 1">
-    <img src="https://via.placeholder.com/1500x300?text=Slide+2" alt="Slide 2">
-    <img src="https://via.placeholder.com/1500x300?text=Slide+3" alt="Slide 3">
-  </div>
+  <section class="carousel-section">
+    <div class="carousel-container">
+      <div class="carousel" id="carousel">
+        <img src="images/banner1.webp" alt="Slide 1">
+        <img src="images/banner2.webp" alt="Slide 2">
+        <img src="images/banner3.webp" alt="Slide 3">
+      </div>
+    </div>
+  </section>
 
   <section id="gioithieu">
-    <h2 data-lang="vi">Giới thiệu</h2>
-    <h2 data-lang="en" style="display:none;">About Us</h2>
-    <p data-lang="vi">Thành lập từ năm 2004, Công Ty TNHH Nhật Thắng chuyên cung cấp các loại thép xây dựng...</p>
-    <p data-lang="en" style="display:none;">Established in 2004, Nhat Thang Co., Ltd. specializes in construction steel...</p>
+    <h2 data-lang="vi">Giới Thiệu</h2>
+    <h2 data-lang="en" style="display:none">About Us</h2>
+    <p data-lang="vi">Công ty TNHH Nhật Thắng chuyên cung cấp sắt thép xây dựng và công nghiệp từ năm 2000.</p>
+    <p data-lang="en" style="display:none">Nhat Thang Co., Ltd. has specialized in construction and industrial steel since 2000.</p>
+  </section>
+
+  <section id="sanpham">
+    <h2 data-lang="vi">Sản Phẩm</h2>
+    <h2 data-lang="en" style="display:none">Products</h2>
+    <ul>
+      <li data-lang="vi">Thép tấm, ống, hình U-I-V-H</li>
+      <li data-lang="en" style="display:none">Steel sheets, pipes, U-I-V-H shapes</li>
+    </ul>
+  </section>
+
+  <section id="dichvu">
+    <h2 data-lang="vi">Dịch Vụ</h2>
+    <h2 data-lang="en" style="display:none">Services</h2>
+    <ul>
+      <li data-lang="vi">Cắt, đục lỗ, giao hàng toàn quốc</li>
+      <li data-lang="en" style="display:none">Cutting, punching, nationwide delivery</li>
+    </ul>
   </section>
 
   <footer>
     <div class="footer-main-content">
       <div class="footer-branding">
-        <img src="images/logo-nhat-thang.webp" alt="Logo" class="footer-logo" />
+        <img src="images/logo-nhat-thang.webp" alt="Logo Nhật Thắng" class="footer-logo">
         <h3>Công Ty TNHH Nhật Thắng</h3>
       </div>
       <div class="footer-contact-details">
-        <p>Địa chỉ: 123 Đường Sắt Thép, TP. Hồ Chí Minh</p>
-        <p>Điện thoại: <a href="tel:0123456789">0123 456 789</a></p>
-        <p>Email: <a href="mailto:info@nhatthang.com">info@nhatthang.com</a></p>
+        <p>Địa chỉ: 123 Đường Sắt Thép, TP. HCM</p>
+        <p>Điện thoại: <a href="tel:0901234567">0901 234 567</a></p>
+        <p>Email: <a href="mailto:lienhe@nhatthang.com">lienhe@nhatthang.com</a></p>
       </div>
     </div>
-    <div class="footer-copyright-bar">
-      <p>© 2025 Nhật Thắng. All rights reserved.</p>
+    <div class="footer-bar">
+      <p>&copy; 2025 Nhật Thắng. All rights reserved.</p>
     </div>
   </footer>
 
-  <div class="popup" id="popup">
-    <a href="tel:0123456789">Gọi ngay: 0123 456 789</a>
-    <a href="zalo://">Liên hệ Zalo</a>
-    <a href="https://m.me/nhatthang">Nhắn tin Facebook</a>
-    <button onclick="closePopup()">Đóng</button>
+  <div class="popup">
+    <strong>Liên hệ ngay với chúng tôi:</strong>
+    <a href="https://zalo.me/0901234567" target="_blank">Zalo</a>
+    <a href="https://m.me/nhatthangsteel" target="_blank">Facebook Messenger</a>
+    <button onclick="this.parentElement.style.display='none'">Đóng</button>
   </div>
 
   <script src="script.js"></script>
