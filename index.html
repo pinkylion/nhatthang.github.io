@@ -13,8 +13,8 @@
     .logo-title { display: flex; align-items: center; gap: 15px; }
     /* ĐIỀU CHỈNH LOGO HEADER */
     .logo-title img {
-      height: 50px; /* Tăng 25% từ 40px */
-      width: 50px;  /* Đặt chiều rộng bằng chiều cao để thành hình vuông */
+      height: 80px; /* Đã thay đổi kích thước */
+      width: 80px;  /* Đã thay đổi kích thước */
       object-fit: cover; /* Đảm bảo ảnh lấp đầy khung vuông không bị méo */
       border-radius: 5px; /* Thêm bo góc nhẹ cho mềm mại */
     }
@@ -80,12 +80,13 @@
         display: flex;
         flex-direction: column;
     }
-
+    
+    /* ĐIỀU CHỈNH LOGO FOOTER */
     .footer-logo {
-        height: 50px;
-        width: auto;
+        height: 80px; /* Đã thay đổi kích thước */
+        width: 80px;  /* Đã thay đổi kích thước */
         margin-bottom: 10px;
-        object-fit: contain;
+        object-fit: contain; /* Giữ nguyên để không bị cắt logo */
         align-self: flex-start;
     }
 
@@ -138,9 +139,8 @@
 
 <header>
   <div class="logo-title">
-    <!-- Đã xóa width="80" để CSS kiểm soát hoàn toàn -->
     <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
-    <strong style="font-size: 1.5em;">Công Ty TNHH Nhật Thắng</strong>
+    <!-- Đã xóa dòng chữ "Công Ty TNHH Nhật Thắng" -->
   </div>
   <nav>
     <a href="index.html">Trang chủ</a>
