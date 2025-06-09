@@ -9,10 +9,15 @@
     header { background-color: #1A3D7C; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
     header a { color: white; margin-left: 20px; text-decoration: none; position: relative; }
     nav a:hover { text-decoration: underline; }
-    .lang-toggle { margin-left: 20px; background: white; color: #1A3D7C; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-weight: bold; }
-
-    .logo-title { display: flex; align-items: center; gap: 10px; }
-    .logo-title img { height: 40px; }
+    
+    .logo-title { display: flex; align-items: center; gap: 15px; }
+    /* ĐIỀU CHỈNH LOGO HEADER */
+    .logo-title img {
+      height: 50px; /* Tăng 25% từ 40px */
+      width: 50px;  /* Đặt chiều rộng bằng chiều cao để thành hình vuông */
+      object-fit: cover; /* Đảm bảo ảnh lấp đầy khung vuông không bị méo */
+      border-radius: 5px; /* Thêm bo góc nhẹ cho mềm mại */
+    }
 
     nav { position: relative; }
     .dropdown { position: relative; display: inline-block; }
@@ -132,8 +137,9 @@
 <body>
 
 <header>
-  <div class="logo-title" style="display: flex; align-items: center; gap: 10px;">
-    <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng" width="80">
+  <div class="logo-title">
+    <!-- Đã xóa width="80" để CSS kiểm soát hoàn toàn -->
+    <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
     <strong style="font-size: 1.5em;">Công Ty TNHH Nhật Thắng</strong>
   </div>
   <nav>
@@ -154,14 +160,11 @@
     </div>
     <a href="#dichvu">Dịch vụ</a>
   </nav>
-  <button class="lang-toggle" onclick="toggleLanguage()" id="lang-toggle">EN</button>
 </header>
 
 <div class="banner">
-  <h1 data-lang="vi">Nhật Thắng</h1>
-  <h1 data-lang="en" style="display:none;">Nhat Thang</h1>
-  <p data-lang="vi">Uy tín trong ngành sắt thép từ năm 2004</p>
-  <p data-lang="en" style="display:none;">Trusted in the steel industry since 2004</p>
+  <h1>Nhật Thắng</h1>
+  <p>Uy tín trong ngành sắt thép từ năm 2004</p>
 </div>
 
 <div class="carousel" id="carousel">
@@ -173,18 +176,13 @@
 </div>
 
 <section id="gioithieu">
-  <h2 data-lang="vi">Giới thiệu</h2>
-  <h2 data-lang="en" style="display:none;">About Us</h2>
-  <!-- NỘI DUNG GIỚI THIỆU ĐÃ ĐƯỢC CẬP NHẬT -->
-  <p data-lang="vi">Công ty Nhật Thắng là đơn vị chuyên kinh doanh và phân phối sắt thép với hơn 20 năm kinh nghiệm tại Thành Phố Vũng Tàu. Chúng tôi cung cấp đa dạng các danh mục sản phẩm như: Thép Ống, Thép Hộp, Thép Hình, Thép Láp, Thép Tấm, Lưới, Inox và Phụ Kiện. Bên cạnh đó, chúng tôi còn nhận gia công cắt, đục lỗ theo yêu cầu và hỗ trợ giao hàng toàn quốc.</p>
-  <p data-lang="vi">Với đội ngũ nhân viên chuyên nghiệp, kho hàng quy mô và nguồn hàng rõ ràng uy tín – có đầy đủ chứng chỉ chất lượng và xuất xứ, Nhật Thắng cam kết mang đến giải pháp vật tư sắt thép hiệu quả, đáp ứng mọi nhu cầu từ dân dụng đến công nghiệp. Cho đến nay, chúng tôi đã và đang đồng hành cùng nhiều công trình tại Vũng Tàu và khắp các miền tổ quốc, luôn lấy chữ tín và sự tận tâm làm kim chỉ nam cho sự phát triển.</p>
-  <p data-lang="en" style="display:none;">Nhat Thang Company is a specialist in the business and distribution of iron and steel with over 20 years of experience in Vung Tau City. We offer a diverse range of product categories such as Steel Pipes, Box Steel, Shaped Steel, Steel Bars, Steel Plates, Mesh, Stainless Steel, and Accessories. Additionally, we provide custom cutting, hole punching services, and support nationwide delivery.</p>
-  <p data-lang="en" style="display:none;">With a professional team, large-scale warehouses, and a clear, reputable supply source – complete with quality and origin certifications – Nhat Thang is committed to providing effective steel material solutions, meeting all needs from residential to industrial. To date, we have been and continue to be a partner in many projects in Vung Tau and across the country, always taking 'prestige' and 'dedication' as our guiding principles for development.</p>
+  <h2>Giới thiệu</h2>
+  <p>Công ty Nhật Thắng là đơn vị chuyên kinh doanh và phân phối sắt thép với hơn 20 năm kinh nghiệm tại Thành Phố Vũng Tàu. Chúng tôi cung cấp đa dạng các danh mục sản phẩm như: Thép Ống, Thép Hộp, Thép Hình, Thép Láp, Thép Tấm, Lưới, Inox và Phụ Kiện. Bên cạnh đó, chúng tôi còn nhận gia công cắt, đục lỗ theo yêu cầu và hỗ trợ giao hàng toàn quốc.</p>
+  <p>Với đội ngũ nhân viên chuyên nghiệp, kho hàng quy mô và nguồn hàng rõ ràng uy tín – có đầy đủ chứng chỉ chất lượng và xuất xứ, Nhật Thắng cam kết mang đến giải pháp vật tư sắt thép hiệu quả, đáp ứng mọi nhu cầu từ dân dụng đến công nghiệp. Cho đến nay, chúng tôi đã và đang đồng hành cùng nhiều công trình tại Vũng Tàu và khắp các miền tổ quốc, luôn lấy chữ tín và sự tận tâm làm kim chỉ nam cho sự phát triển.</p>
 </section>
 
 <section id="sanpham">
-  <h2 data-lang="vi">Sản phẩm</h2>
-  <h2 data-lang="en" style="display:none;">Products</h2>
+  <h2>Sản phẩm</h2>
   <div class="product-grid">
     <div class="card"><h3>Thép Tấm</h3></div>
     <div class="card"><h3>Thép Hình</h3></div>
@@ -196,15 +194,11 @@
 </section>
 
 <section id="dichvu">
-  <h2 data-lang="vi">Dịch vụ</h2>
-  <h2 data-lang="en" style="display:none;">Services</h2>
+  <h2>Dịch vụ</h2>
   <ul>
-    <li data-lang="vi">Cắt sắt thép theo kích thước</li>
-    <li data-lang="en" style="display:none;">Custom steel cutting</li>
-    <li data-lang="vi">Đục/khoan lỗ theo yêu cầu</li>
-    <li data-lang="en" style="display:none;">Drilling and punching</li>
-    <li data-lang="vi">Vận chuyển toàn quốc</li>
-    <li data-lang="en" style="display:none;">Nationwide delivery</li>
+    <li>Cắt sắt thép theo kích thước</li>
+    <li>Đục/khoan lỗ theo yêu cầu</li>
+    <li>Vận chuyển toàn quốc</li>
   </ul>
 </section>
 
@@ -221,7 +215,6 @@
     </div>
   </div>
   <div class="footer-copyright-bar">
-    <!-- Năm ở đây sẽ được JavaScript tự động cập nhật -->
     <p>© 2004 - <span id="copyright-year"></span> Công Ty TNHH Nhật Thắng. All rights reserved.</p>
   </div>
 </footer>
@@ -235,16 +228,6 @@
 </div>
 
 <script>
-  // Chuyển đổi ngôn ngữ
-  function toggleLanguage() {
-    const viElements = document.querySelectorAll('[data-lang="vi"]');
-    const enElements = document.querySelectorAll('[data-lang="en"]');
-    const isVietnamese = viElements[0] && viElements[0].style.display !== 'none';
-    viElements.forEach(el => el.style.display = isVietnamese ? 'none' : '');
-    enElements.forEach(el => el.style.display = isVietnamese ? '' : 'none');
-    document.getElementById('lang-toggle').textContent = isVietnamese ? 'VI' : 'EN';
-  }
-
   // Hiển thị popup liên hệ sau 10 giây
   setTimeout(() => {
     document.getElementById('contact-popup').style.display = 'block';
@@ -252,11 +235,10 @@
   
   // Tự động chạy slide ảnh
   const carousel = document.getElementById('carousel');
-  if (carousel) { // Kiểm tra xem carousel có tồn tại không
+  if (carousel) {
     let index = 0;
     setInterval(() => {
         index = (index + 1) % carousel.children.length;
-        // Giả sử carousel chứa các thẻ img trực tiếp
         const firstImage = carousel.querySelector('img');
         if (firstImage) {
             firstImage.style.marginLeft = `-${index * 100}%`;
