@@ -1,254 +1,338 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nhật Thắng</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; color: #333; }
-    header { background-color: #1A3D7C; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; }
-    header a { color: white; margin-left: 20px; text-decoration: none; position: relative; }
-    nav a:hover { text-decoration: underline; }
-    
-    .logo-title { display: flex; align-items: center; gap: 15px; }
-    /* ĐIỀU CHỈNH LOGO HEADER */
-    .logo-title img {
-      height: 100px; /* Đã thay đổi kích thước */
-      width: 100px;  /* Đã thay đổi kích thước */
-      object-fit: cover; /* Đảm bảo ảnh lấp đầy khung vuông không bị méo */
-      border-radius: 5px; /* Thêm bo góc nhẹ cho mềm mại */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công Ty TNHH NHẬT THẮNG - Sắt Thép Vũng Tàu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Enable smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        /* Style for the carousel transition */
+        .carousel-track {
+            transition: transform 0.5s ease-in-out;
+        }
+        /* Custom color palette */
+        .bg-custom-blue { background-color: #1A3D7C; }
+        .text-custom-blue { color: #1A3D7C; }
+        .hover\:bg-custom-blue-dark:hover { background-color: #132d5b; }
+        .bg-custom-red { background-color: #D62828; }
+        .hover\:bg-custom-red-dark:hover { background-color: #b02020; }
+        .text-custom-yellow { color: #FFD700; }
 
-    nav { position: relative; }
-    .dropdown { position: relative; display: inline-block; }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      color: #1A3D7C;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    .dropdown-content a {
-      color: #1A3D7C;
-      padding: 10px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .banner { background: url('https://via.placeholder.com/1500x500') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; background-color: #1A3D7C; }
-    .banner h1 { font-size: 2.5em; margin-bottom: 10px; }
-    .banner p { font-size: 1.2em; }
-    .btn { background-color: #D62828; color: white; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; }
-
-    .carousel { display: flex; overflow: hidden; max-width: 100%; position: relative; height: 300px; }
-    .carousel img { min-width: 100%; transition: transform 1s ease; height: 300px; object-fit: cover; }
-
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-    section p { line-height: 1.6; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .card h3 { margin-top: 0; }
-    
-    /* --- CSS CHO FOOTER --- */
-    footer {
-        background-color: #1A3D7C; /* Màu nền xanh cho phần footer chính */
-        color: white;
-        padding-top: 30px; /* Thêm padding ở trên cùng của footer */
-    }
-
-    .footer-main-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 30px;
-        margin-bottom: 30px;
-        padding: 0 20px; /* Thêm padding ngang */
-    }
-
-    .footer-branding {
-        flex-grow: 1;
-        flex-basis: 30%;
-        min-width: 250px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* ĐIỀU CHỈNH LOGO FOOTER */
-    .footer-logo {
-        height: 80px; /* Đã thay đổi kích thước */
-        width: 80px;  /* Đã thay đổi kích thước */
-        margin-bottom: 10px;
-        object-fit: contain; /* Giữ nguyên để không bị cắt logo */
-        align-self: flex-start;
-    }
-
-    .footer-branding h3 {
-        margin: 0;
-        font-size: 1.25em;
-        line-height: 1.3;
-    }
-
-    .footer-contact-details {
-        flex-grow: 2;
-        flex-basis: 60%;
-        min-width: 300px;
-        line-height: 1.7;
-    }
-
-    .footer-contact-details p {
-        margin-top: 0;
-        margin-bottom: 8px;
-    }
-
-    .footer-contact-details a {
-        color: #FFD700; /* Màu vàng cho link để nổi bật */
-        text-decoration: none;
-    }
-
-    .footer-contact-details a:hover {
-        text-decoration: underline;
-    }
-    
-    /* Thanh copyright ở dưới cùng */
-    .footer-copyright-bar {
-        background-color: #FF0000; /* Màu nền đỏ tươi */
-        padding: 15px 20px; 
-        text-align: center;
-        font-size: 0.9em;
-        box-sizing: border-box;
-    }
-
-    .footer-copyright-bar p {
-        margin: 0;
-    }
-
-    .popup { display: none; position: fixed; bottom: 20px; right: 20px; background: #1A3D7C; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 999; }
-    .popup a { color: #FFD700; text-decoration: none; display: block; margin: 5px 0; }
-    .popup button { margin-top: 10px; padding: 5px 10px; background: white; color: #1A3D7C; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; }
-  </style>
+        /* Styles for the new floating action buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .fab-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            transform: scale(0.95);
+        }
+        .fab-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+        .fab-call { background-color: #25D366; }
+        .fab-zalo { background-color: #0068ff; }
+        .fab-email { background-color: #c71610; }
+        .fab-facebook { background-color: #1877F2; }
+        .fab-map { background-color: #34A853; }
+    </style>
 </head>
-<body>
+<body class="text-gray-800">
 
-<header>
-  <div class="logo-title">
-    <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
-    <!-- Đã xóa dòng chữ "Công Ty TNHH Nhật Thắng" -->
-  </div>
-  <nav>
-    <a href="index.html">Trang chủ</a>
-    <a href="#gioithieu">Giới thiệu</a>
-    <div class="dropdown">
-      <a href="#sanpham">Sản phẩm ▾</a>
-      <div class="dropdown-content">
-        <a href="#sanpham">Tất Cả Sản Phẩm</a>
-        <a href="#thepong">Thép Ống</a>
-        <a href="#thephop">Thép Hộp</a>
-        <a href="#thephinh">Thép Hình</a>
-        <a href="#theptam">Thép Tấm</a>
-        <a href="#theplap">Thép Láp</a>
-        <a href="#inox">Inox</a>
-        <a href="#luoi">Lưới</a>
-        <a href="#phukien">Phụ Kiện</a>
-      </div>
+    <header class="bg-custom-blue shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <img class="h-14 w-14 rounded-md object-cover" src="https://placehold.co/100x100/1A3D7C/FFFFFF?text=NT" alt="Logo Công Ty TNHH Nhật Thắng">
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-custom-yellow transition duration-300">Trang chủ</a>
+                    <a href="#gioithieu" class="text-white hover:text-custom-yellow transition duration-300">Giới thiệu</a>
+                    <div class="relative" id="desktop-dropdown">
+                        <button onclick="toggleDesktopDropdown()" class="text-white hover:text-custom-yellow transition duration-300 flex items-center">
+                            Sản phẩm <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div id="desktop-dropdown-content" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                            <a href="#sanpham" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tất Cả Sản Phẩm</a>
+                            <a href="#theptam" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Tấm</a>
+                            <a href="#thephinh" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Hình</a>
+                            <a href="#thepong" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Ống</a>
+                            <a href="#thephop" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Hộp</a>
+                            <a href="#theplap" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Láp</a>
+                            <a href="#inox" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inox</a>
+                            <a href="#luoi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Lưới</a>
+                            <a href="#phukien" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Phụ Kiện</a>
+                        </div>
+                    </div>
+                    <a href="#dichvu" class="text-white hover:text-custom-yellow transition duration-300">Dịch vụ</a>
+                     <a href="#lienhe" class="bg-custom-red text-white px-4 py-2 rounded-md hover:bg-custom-red-dark transition duration-300">Liên Hệ</a>
+                </nav>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-custom-yellow focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Trang chủ</a>
+                <a href="#gioithieu" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Giới thiệu</a>
+                <a href="#sanpham" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Sản phẩm</a>
+                <a href="#dichvu" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Dịch vụ</a>
+                <a href="#lienhe" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Liên Hệ</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="relative bg-custom-blue text-white py-24 md:py-32">
+            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1599691880946-f0f823a07125?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-wider leading-tight mb-4">NHẬT THẮNG</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto">Uy tín trong ngành sắt thép từ năm 2000</p>
+                <a href="#sanpham" class="mt-8 inline-block bg-custom-red text-white font-bold py-3 px-8 rounded-lg hover:bg-custom-red-dark transition duration-300 transform hover:scale-105">Xem Sản Phẩm</a>
+            </div>
+        </section>
+
+        <div id="image-carousel" class="relative w-full overflow-hidden" style="height: 50vh;">
+            <div class="carousel-track flex h-full">
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542838097-b89415474447?q=80&w=1974&auto=format&fit=crop');"></div>
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516146555284-85265419b46e?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1622434641406-a15993414892?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="w-full flex-shrink-0 h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1599249213199-52d334685a73?q=80&w=2070&auto=format&fit=crop');"></div>
+            </div>
+            <button id="carousel-prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-3 transition z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="carousel-next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 rounded-full p-3 transition z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div id="carousel-dots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"></div>
+        </div>
+        
+        <section id="gioithieu" class="py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-custom-blue mb-4">Về Nhật Thắng</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-8">
+                    Với hơn 20 năm kinh nghiệm, Nhật Thắng là đơn vị phân phối sắt thép hàng đầu. Chúng tôi cam kết mang đến giải pháp vật tư hiệu quả, đáp ứng mọi nhu cầu từ dân dụng đến công nghiệp, luôn lấy chữ tín và sự tận tâm làm kim chỉ nam.
+                </p>
+            </div>
+        </section>
+
+        <section id="sanpham" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-custom-blue mb-12">Sản Phẩm Của Chúng Tôi</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <div id="theptam" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Thép+Tấm" class="w-full h-56 object-cover" alt="Thép Tấm"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Thép Tấm</h3><p class="text-gray-600">Thép tấm cán nóng, cán nguội, chống trượt với đa dạng độ dày và kích thước.</p></div></div>
+                    <div id="thephinh" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Thép+Hình" class="w-full h-56 object-cover" alt="Thép Hình"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Thép Hình</h3><p class="text-gray-600">Thép hình I, U, V, H cho các kết cấu xây dựng và công nghiệp.</p></div></div>
+                    <div id="thepong" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Thép+Ống" class="w-full h-56 object-cover" alt="Thép Ống"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Thép Ống</h3><p class="text-gray-600">Thép ống đen, mạ kẽm, ống đúc cho các ứng dụng dân dụng và công nghiệp.</p></div></div>
+                    <div id="thephop" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Thép+Hộp" class="w-full h-56 object-cover" alt="Thép Hộp"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Thép Hộp</h3><p class="text-gray-600">Thép hộp vuông, chữ nhật, đen và mạ kẽm, độ bền cao.</p></div></div>
+                    <div id="theplap" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Thép+Láp" class="w-full h-56 object-cover" alt="Thép Láp"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Thép Láp</h3><p class="text-gray-600">Thép láp tròn trơn, đặc, sử dụng trong gia công cơ khí chính xác.</p></div></div>
+                    <div id="inox" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Inox" class="w-full h-56 object-cover" alt="Inox"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Inox</h3><p class="text-gray-600">Các loại inox tấm, ống, hộp, V với chất lượng cao, chống gỉ sét.</p></div></div>
+                    <div id="luoi" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Lưới" class="w-full h-56 object-cover" alt="Lưới"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Lưới</h3><p class="text-gray-600">Lưới thép B40, lưới hàn, lưới mắt cáo cho hàng rào và xây dựng.</p></div></div>
+                    <div id="phukien" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"><img src="https://placehold.co/600x400/eeeeee/cccccc?text=Phụ+Kiện" class="w-full h-56 object-cover" alt="Phụ Kiện"><div class="p-6"><h3 class="text-xl font-bold text-custom-blue mb-2">Phụ Kiện</h3><p class="text-gray-600">Cung cấp đầy đủ phụ kiện ngành sắt thép: bản mã, mặt bích, bu lông...</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dichvu" class="py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-custom-blue mb-12">Dịch Vụ Của Chúng Tôi</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-md"><i class="fas fa-cut fa-3x text-custom-red mb-4"></i><h3 class="text-xl font-bold text-custom-blue mb-2">Gia Công Cắt</h3><p class="text-gray-600">Cắt sắt thép theo mọi kích thước yêu cầu của khách hàng với độ chính xác cao.</p></div>
+                    <div class="bg-white p-8 rounded-lg shadow-md"><i class="fas fa-ruler-combined fa-3x text-custom-red mb-4"></i><h3 class="text-xl font-bold text-custom-blue mb-2">Đục Lỗ Theo Yêu Cầu</h3><p class="text-gray-600">Nhận đục lỗ, khoan lỗ trên các sản phẩm thép theo bản vẽ kỹ thuật.</p></div>
+                    <div class="bg-white p-8 rounded-lg shadow-md"><i class="fas fa-truck fa-3x text-custom-red mb-4"></i><h3 class="text-xl font-bold text-custom-blue mb-2">Vận Chuyển Toàn Quốc</h3><p class="text-gray-600">Hỗ trợ giao hàng tận nơi nhanh chóng, đảm bảo an toàn trên toàn quốc.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="lienhe" class="bg-custom-blue text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="md:col-span-1">
+                    <a href="#" class="flex items-center space-x-3 mb-4">
+                        <img class="h-12 w-12 rounded-md object-cover" src="https://placehold.co/100x100/1A3D7C/FFFFFF?text=NT" alt="Logo Công Ty TNHH Nhật Thắng">
+                        <h3 class="text-2xl font-bold">Công Ty TNHH NHẬT THẮNG</h3>
+                    </a>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="font-semibold text-lg mb-4">Thông Tin Liên Hệ</h4>
+                    <p class="text-gray-300 flex items-start mb-2"><i class="fas fa-map-marker-alt w-5 mr-2 mt-1"></i><span>665 Đường 30 tháng 4, Phường Rạch Dừa, Thành Phố Vũng Tàu</span></p>
+                    <p class="text-gray-300 flex items-center mb-2"><i class="fas fa-envelope w-5 mr-2"></i><a href="mailto:nhatthangvt@gmail.com" class="hover:text-custom-yellow">nhatthangvt@gmail.com</a></p>
+                    <p class="text-gray-300 flex items-center mb-2"><i class="fas fa-phone w-5 mr-2"></i><a href="tel:0812738838" class="hover:text-custom-yellow">0812 738 838</a></p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">© 2000 - <span id="copyright-year"></span> Công Ty TNHH NHẬT THẮNG. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fab-container">
+        <a href="tel:0812738838" class="fab-icon fab-call" aria-label="Gọi điện thoại">
+            <i class="fas fa-phone fa-lg"></i>
+        </a>
+        <a href="#" class="fab-icon fab-zalo" aria-label="Chat Zalo">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 450 448" xmlns="http://www.w3.org/2000/svg"><path d="M383.5 0c33.5 0 60.5 27 60.5 60.5v327c0 33.5-27 60.5-60.5 60.5h-327C23 448 0 421 0 387.5v-327C0 27 27 0 60.5 0h323zm-171.2 119.2c-1.3-2.5-4-4-6.8-4-3 0-5.7 1.7-7 4.3l-24.8 49.3c-1.5 3-4.3 5-7.5 5s-6-2-7.5-5l-24.8-49.3c-1.3-2.6-4-4.3-7-4.3-2.8 0-5.5 1.5-6.8 4l-44.5 88.8c-1.3 2.6-1.5 5.5-.3 8.3 1.2 2.8 4 4.8 7 4.8h28.5c2.8 0 5.3-1.6 6.5-4L156 198.5l23.2 46.3c1.5 3 4.3 4.8 7.5 4.8s6-1.8 7.5-4.8l23.2-46.3 22.8 45.8c1.2 2.5 3.7 4 6.5 4h28.5c3 0 5.8-2 7-4.8 1.2-2.8 1-5.8-.4-8.3l-44.4-88.8zM327.5 321c2.8 0 5.3-1.6 6.5-4L383 226.2c1.2-2.5 1-5.4-.5-8-1.5-2.6-4.3-4.2-7.2-4.2h-31.3c-2.8 0-5.3 1.6-6.5 4l-25 50-24.8-49.5c-1.3-2.6-4-4.5-7-4.5s-5.7 2-7 4.5L249 268l-25-50c-1.2-2.5-3.7-4-6.5-4h-31.3c-3 0-5.7 1.6-7.2 4.2-1.5 2.6-1.7 5.5-.5 8L226 317c1.2 2.5 3.7 4 6.5 4h88.5-1.5z"/></svg>
+        </a>
+        <a href="mailto:nhatthangvt@gmail.com" class="fab-icon fab-email" aria-label="Gửi Email">
+            <i class="fas fa-envelope fa-lg"></i>
+        </a>
+        <a href="#" class="fab-icon fab-facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f fa-lg"></i>
+        </a>
+        <a href="#" class="fab-icon fab-map" aria-label="Xem bản đồ">
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+        </a>
     </div>
-    <a href="#dichvu">Dịch vụ</a>
-  </nav>
-</header>
-
-<div class="banner">
-  <h1>Nhật Thắng</h1>
-  <p>Uy tín trong ngành sắt thép từ năm 2004</p>
-</div>
-
-<div class="carousel" id="carousel">
-  <img src="https://via.placeholder.com/1500x300?text=Slide+1" alt="Slide 1">
-  <img src="https://via.placeholder.com/1500x300?text=Slide+2" alt="Slide 2">
-  <img src="https://via.placeholder.com/1500x300?text=Slide+3" alt="Slide 3">
-  <img src="https://via.placeholder.com/1500x300?text=Slide+4" alt="Slide 4">
-  <img src="https://via.placeholder.com/1500x300?text=Slide+5" alt="Slide 5">
-</div>
-
-<section id="gioithieu">
-  <h2>Giới thiệu</h2>
-  <p>Công ty Nhật Thắng là đơn vị chuyên kinh doanh và phân phối sắt thép với hơn 20 năm kinh nghiệm tại Thành Phố Vũng Tàu. Chúng tôi cung cấp đa dạng các danh mục sản phẩm như: Thép Ống, Thép Hộp, Thép Hình, Thép Láp, Thép Tấm, Lưới, Inox và Phụ Kiện. Bên cạnh đó, chúng tôi còn nhận gia công cắt, đục lỗ theo yêu cầu và hỗ trợ giao hàng toàn quốc.</p>
-  <p>Với đội ngũ nhân viên chuyên nghiệp, kho hàng quy mô và nguồn hàng rõ ràng uy tín – có đầy đủ chứng chỉ chất lượng và xuất xứ, Nhật Thắng cam kết mang đến giải pháp vật tư sắt thép hiệu quả, đáp ứng mọi nhu cầu từ dân dụng đến công nghiệp. Cho đến nay, chúng tôi đã và đang đồng hành cùng nhiều công trình tại Vũng Tàu và khắp các miền tổ quốc, luôn lấy chữ tín và sự tận tâm làm kim chỉ nam cho sự phát triển.</p>
-</section>
-
-<section id="sanpham">
-  <h2>Sản phẩm</h2>
-  <div class="product-grid">
-    <div class="card"><h3>Thép Tấm</h3></div>
-    <div class="card"><h3>Thép Hình</h3></div>
-    <div class="card"><h3>Thép Ống</h3></div>
-    <div class="card"><h3>Thép Hộp</h3></div>
-    <div class="card"><h3>Lưới</h3></div>
-    <div class="card"><h3>Phụ Kiện</h3></div>
-  </div>
-</section>
-
-<section id="dichvu">
-  <h2>Dịch vụ</h2>
-  <ul>
-    <li>Cắt sắt thép theo kích thước</li>
-    <li>Đục/khoan lỗ theo yêu cầu</li>
-    <li>Vận chuyển toàn quốc</li>
-  </ul>
-</section>
-
-<footer>
-  <div class="footer-main-content">
-    <div class="footer-branding">
-      <img src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng" class="footer-logo">
-      <h3>Công Ty TNHH Nhật Thắng</h3>
-    </div>
-    <div class="footer-contact-details">
-      <p>📍 665 Đường 30 tháng 4, Phường Rạch Dừa, Thành Phố Vũng Tàu</p>
-      <p>📧 <a href="mailto:nhatthangvt@gmail.com">nhatthangvt@gmail.com</a></p>
-      <p>📞 0812738838 | 0903842182 | 0908010304</p>
-    </div>
-  </div>
-  <div class="footer-copyright-bar">
-    <p>© 2004 - <span id="copyright-year"></span> Công Ty TNHH Nhật Thắng. All rights reserved.</p>
-  </div>
-</footer>
-
-<div class="popup" id="contact-popup">
-  <p>Cần hỗ trợ? Liên hệ với chúng tôi ngay!</p>
-  <a href="https://zalo.me/84901234567" target="_blank">Zalo</a>
-  <a href="https://facebook.com/nhatthangsteel" target="_blank">Facebook</a>
-  <a href="tel:0903842182">Gọi 0903 842 182</a>
-  <button onclick="document.getElementById('contact-popup').style.display='none'">Đóng</button>
-</div>
 
 <script>
-  // Hiển thị popup liên hệ sau 10 giây
-  setTimeout(() => {
-    document.getElementById('contact-popup').style.display = 'block';
-  }, 10000);
-  
-  // Tự động chạy slide ảnh
-  const carousel = document.getElementById('carousel');
-  if (carousel) {
-    let index = 0;
-    setInterval(() => {
-        index = (index + 1) % carousel.children.length;
-        const firstImage = carousel.querySelector('img');
-        if (firstImage) {
-            firstImage.style.marginLeft = `-${index * 100}%`;
-        }
-    }, 3000);
-  }
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- RESPONSIVE NAVIGATION ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuButton.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
 
-  // Tự động cập nhật năm cho phần copyright
-  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    // --- CLICKABLE DESKTOP DROPDOWN ---
+    window.toggleDesktopDropdown = function() {
+        document.getElementById('desktop-dropdown-content').classList.toggle('hidden');
+    }
+    window.onclick = function(event) {
+        if (!event.target.matches('#desktop-dropdown button, #desktop-dropdown button *')) {
+            const dropdown = document.getElementById('desktop-dropdown-content');
+            if (!dropdown.classList.contains('hidden')) {
+                dropdown.classList.add('hidden');
+            }
+        }
+    }
+
+    // --- IMAGE CAROUSEL ---
+    const carousel = document.getElementById('image-carousel');
+    if (carousel) {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.getElementById('carousel-next');
+        const prevButton = document.getElementById('carousel-prev');
+        const dotsNav = document.getElementById('carousel-dots');
+        let slideWidth = slides.length > 0 ? carousel.getBoundingClientRect().width : 0;
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        const moveToSlide = (targetIndex) => {
+            if (slides.length === 0) return;
+            track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+            currentIndex = targetIndex;
+            updateDots();
+        };
+        
+        const updateDots = () => {
+            if (dots.length === 0) return;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-white', index === currentIndex);
+            });
+        };
+        
+        const setSlidePositions = () => {
+            if (slides.length === 0) return;
+            slideWidth = carousel.getBoundingClientRect().width;
+            slides.forEach((slide, index) => {
+                slide.style.width = slideWidth + 'px';
+            });
+            moveToSlide(currentIndex);
+        };
+
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white/50', 'hover:bg-white', 'transition');
+            dot.addEventListener('click', () => {
+                moveToSlide(index);
+                resetAutoPlay();
+            });
+            dotsNav.appendChild(dot);
+        });
+        const dots = Array.from(dotsNav.children);
+
+        nextButton.addEventListener('click', () => {
+            if (slides.length === 0) return;
+            const nextIndex = (currentIndex + 1) % slides.length;
+            moveToSlide(nextIndex);
+            resetAutoPlay();
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (slides.length === 0) return;
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moveToSlide(prevIndex);
+            resetAutoPlay();
+        });
+        
+        const startAutoPlay = () => {
+            autoPlayInterval = setInterval(() => {
+                if (slides.length === 0) return;
+                const nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(nextIndex);
+            }, 5000); // Change slide every 5 seconds
+        };
+        
+        const resetAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        };
+
+        window.addEventListener('resize', setSlidePositions);
+        
+        // Initial setup
+        setSlidePositions();
+        updateDots();
+        startAutoPlay();
+    }
+
+    // --- DYNAMIC COPYRIGHT YEAR ---
+    const copyrightYearEl = document.getElementById('copyright-year');
+    if (copyrightYearEl) {
+        copyrightYearEl.textContent = new Date().getFullYear();
+    }
+});
 </script>
 
 </body>
