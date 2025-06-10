@@ -84,12 +84,12 @@
                 <nav class="hidden md:flex items-center space-x-10">
                     <a href="#home" class="text-white hover:text-custom-yellow transition duration-300">Trang chủ</a>
                     <a href="#gioithieu" class="text-white hover:text-custom-yellow transition duration-300">Giới thiệu</a>
-                    <!-- Dropdown Menu -->
-                    <div class="relative" id="desktop-dropdown">
-                        <button onclick="toggleDesktopDropdown()" class="text-white hover:text-custom-yellow transition duration-300 flex items-center">
+                    <!-- Dropdown Menu on Hover -->
+                    <div class="relative group">
+                        <a href="#sanpham" class="text-white hover:text-custom-yellow transition duration-300 flex items-center cursor-pointer">
                             Sản phẩm <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                        </button>
-                        <div id="desktop-dropdown-content" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+                        </a>
+                        <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
                             <a href="#sanpham" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tất Cả Sản Phẩm</a>
                             <a href="#theptam" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Tấm</a>
                             <a href="#thephinh" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Hình</a>
@@ -132,7 +132,6 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-wider leading-tight mb-4">NHẬT THẮNG</h1>
                 <p class="text-lg md:text-xl max-w-3xl mx-auto">Uy tín trong ngành sắt thép từ năm 2000</p>
-                <a href="#sanpham" class="mt-8 inline-block bg-custom-red text-white font-bold py-3 px-8 rounded-lg hover:bg-custom-red-dark transition duration-300 transform hover:scale-105">Xem Sản Phẩm</a>
             </div>
         </section>
 
@@ -209,7 +208,7 @@
                 <div class="md:col-span-1">
                     <a href="#" class="flex items-center space-x-4 mb-4">
                         <img class="h-24 w-24 rounded-md object-cover" src="images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
-                        <h3 class="text-3xl font-bold tracking-wider">CÔNG TY TNHH NHẬT THẮNG</h3>
+                        <h3 class="text-3xl font-bold tracking-wider">CÔNG TY TNHH <span class="whitespace-nowrap">NHẬT THẮNG</span></h3>
                     </a>
                 </div>
                 <!-- Contact Info -->
@@ -264,19 +263,6 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
     });
-
-    // --- CLICKABLE DESKTOP DROPDOWN ---
-    window.toggleDesktopDropdown = function() {
-        document.getElementById('desktop-dropdown-content').classList.toggle('hidden');
-    }
-    window.onclick = function(event) {
-        if (!event.target.matches('#desktop-dropdown button, #desktop-dropdown button *')) {
-            const dropdown = document.getElementById('desktop-dropdown-content');
-            if (!dropdown.classList.contains('hidden')) {
-                dropdown.classList.add('hidden');
-            }
-        }
-    }
 
     // --- IMAGE CAROUSEL ---
     const carousel = document.getElementById('image-carousel');
