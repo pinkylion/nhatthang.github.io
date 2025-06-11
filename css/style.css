@@ -1,25 +1,52 @@
-/* Enable smooth scrolling */
+/* =================================================================
+   CSS TỔNG HỢP CHO WEBSITE NHẬT THẮNG
+   ================================================================= */
+
+/* 1. ĐỊNH DẠNG CHUNG & TOÀN BỘ TRANG
+/* ================================================================= */
+
 html {
     scroll-behavior: smooth;
 }
-/* Custom styles */
+
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8fafc;
+    background-color: #f8fafc; /* Màu nền chung cho trang */
 }
-/* Style for the carousel transition */
+
+/* 2. BIẾN MÀU SẮC TÙY CHỈNH
+/* ================================================================= */
+/* Sử dụng bảng màu mới nhất và nhất quán */
+:root {
+    --custom-blue: #1A3D7C;
+    --custom-blue-dark: #132d5b;
+    --custom-red: #D62828;
+    --custom-red-dark: #b02020;
+    --custom-yellow: #FFD700;
+}
+
+/* Áp dụng các lớp màu cho các phần tử */
+.bg-custom-blue { background-color: var(--custom-blue); }
+.text-custom-blue { color: var(--custom-blue); }
+.hover\:bg-custom-blue-dark:hover { background-color: var(--custom-blue-dark); }
+
+.bg-custom-red { background-color: var(--custom-red); }
+.hover\:bg-custom-red-dark:hover { background-color: var(--custom-red-dark); }
+.text-custom-red { color: var(--custom-red); }
+
+.text-custom-yellow { color: var(--custom-yellow); }
+.hover\:text-custom-yellow:hover { color: var(--custom-yellow); }
+
+
+/* 3. CÁC THÀNH PHẦN CỤ THỂ
+/* ================================================================= */
+
+/* Hiệu ứng chuyển động cho Carousel */
 .carousel-track {
     transition: transform 0.5s ease-in-out;
 }
-/* Custom color palette */
-.bg-custom-blue { background-color: #1A3D7C; }
-.text-custom-blue { color: #1A3D7C; }
-.hover\:bg-custom-blue-dark:hover { background-color: #132d5b; }
-.bg-custom-red { background-color: #D62828; }
-.hover\:bg-custom-red-dark:hover { background-color: #b02020; }
-.text-custom-yellow { color: #FFD700; }
 
-/* Styles for the new floating action buttons */
+/* Định dạng cho các nút hành động nổi (Floating Action Buttons) */
 .fab-container {
     position: fixed;
     bottom: 20px;
@@ -29,6 +56,7 @@ body {
     flex-direction: column;
     gap: 12px;
 }
+
 .fab-icon {
     display: flex;
     align-items: center;
@@ -39,24 +67,28 @@ body {
     color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    text-decoration: none;
     transform: scale(0.95);
 }
+
 .fab-icon:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
+
+/* Màu sắc cho từng nút FAB */
 .fab-call { background-color: #25D366; }
 .fab-zalo { background-color: #0068ff; }
 .fab-email { background-color: #c71610; }
 .fab-facebook { background-color: #1877F2; }
 .fab-map { background-color: #34A853; }
 
-/* Styles for AI Estimator results */
+
+/* Định dạng cho phần kết quả của công cụ ước tính AI */
 #result-content pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-family: inherit;
+    white-space: pre-wrap;      /* Giúp xuống dòng tự động */
+    word-wrap: break-word;      /* Đảm bảo từ dài không làm vỡ layout */
+    font-family: inherit;       /* Sử dụng font chữ của trang */
     font-size: 1rem;
     line-height: 1.6;
 }
-
