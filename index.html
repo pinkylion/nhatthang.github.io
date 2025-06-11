@@ -65,6 +65,15 @@
         .fab-email { background-color: #c71610; }
         .fab-facebook { background-color: #1877F2; }
         .fab-map { background-color: #34A853; }
+        
+        /* Styles for AI Estimator results */
+        #result-content pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -198,7 +207,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- GEMINI AI ESTIMATOR SECTION -->
         <section id="estimator" class="py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,7 +228,7 @@
                             <i class="fas fa-spinner fa-spin fa-2x text-custom-blue"></i>
                             <p class="mt-2 text-gray-600">Trợ lý AI đang tính toán, vui lòng chờ trong giây lát...</p>
                         </div>
-                        <div id="result-content" class="prose max-w-none"></div>
+                        <div id="result-content"></div>
                     </div>
                 </div>
             </div>
@@ -393,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Show loading state
         estimatorResult.style.display = 'block';
-        loadingIndicator.style.display = 'block';
+        loadingIndicator.style.display = 'flex';
         resultContent.innerHTML = '';
         estimateButton.disabled = true;
         estimateButton.classList.add('opacity-50', 'cursor-not-allowed');
@@ -420,6 +429,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (!response.ok) {
+                const errorData = await response.text();
+                console.error("API Error:", response.status, errorData);
                 throw new Error(`API error! status: ${response.status}`);
             }
 
@@ -431,18 +442,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 result.candidates[0].content.parts.length > 0) {
                 text = result.candidates[0].content.parts[0].text;
             }
-
-            // Simple markdown to HTML conversion
-            let htmlResult = text
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')     // Italic
-                .replace(/^- (.*$)/gim, '<li class="ml-4">$1</li>') // List items
-                .replace(/(\r\n|\n|\r)/g, '<br>')
-                .replace(/<br><li/g, '<li'); // Clean up extra breaks
-                
-            htmlResult = `<ul>${htmlResult}</ul>`;
-
-            resultContent.innerHTML = htmlResult;
+            
+            // Display result in a <pre> tag to preserve formatting safely
+            const pre = document.createElement('pre');
+            pre.textContent = text;
+            resultContent.appendChild(pre);
 
         } catch (error) {
             console.error('Error calling Gemini API:', error);
