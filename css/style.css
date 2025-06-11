@@ -92,3 +92,28 @@ body {
     font-size: 1rem;
     line-height: 1.6;
 }
+
+/* 4. HERO SECTION (PHẦN NỀN XANH DƯỚI THANH ĐIỀU HƯỚNG)
+/* ================================================================= */
+/* Lớp này tạo một lớp giả ::before để chứa ảnh nền, giúp tách biệt với nội dung. */
+.hero-section-bg {
+    position: relative;
+    z-index: 1; /* Đảm bảo nội dung chữ nổi lên trên */
+}
+
+.hero-section-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Đặt ảnh nền phía sau nội dung */
+
+    /* Đường dẫn đến hình ảnh mặt tiền công ty */
+    background-image: url('../images/banner/mat-tien-cong-ty-nhat-thang.webp');
+
+    background-size: cover; /* Đảm bảo ảnh lấp đầy không gian */
+    background-position: center; /* Căn giữa ảnh */
+    opacity: 0.2; /* Điều chỉnh độ mờ của ảnh (từ 0 đến 1) */
+}
