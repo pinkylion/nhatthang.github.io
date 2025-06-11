@@ -99,6 +99,19 @@ body {
 .hero-section-bg {
     position: relative;
     z-index: 1; /* Đảm bảo nội dung chữ nổi lên trên */
+
+    /* Ghi đè padding của Tailwind để tăng chiều cao banner.
+       Lưu ý: Cần có !important để ghi đè các lớp như py-24, py-32 trong HTML. */
+    padding-top: 7.8rem !important; /* Tăng ~30% từ 6rem (py-24) */
+    padding-bottom: 7.8rem !important;
+}
+
+/* Điều chỉnh padding cho màn hình lớn hơn (>=768px) */
+@media (min-width: 768px) {
+    .hero-section-bg {
+        padding-top: 10.4rem !important; /* Tăng ~30% từ 8rem (py-32) */
+        padding-bottom: 10.4rem !important;
+    }
 }
 
 .hero-section-bg::before {
@@ -115,5 +128,5 @@ body {
 
     background-size: cover; /* Đảm bảo ảnh lấp đầy không gian */
     background-position: center; /* Căn giữa ảnh */
-    opacity: 0.2; /* Điều chỉnh độ mờ của ảnh (từ 0 đến 1) */
+    opacity: 1; /* Độ mờ đã được bỏ, hình ảnh rõ hoàn toàn */
 }
