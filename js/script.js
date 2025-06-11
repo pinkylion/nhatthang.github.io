@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
     // --- RESPONSIVE NAVIGATION ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -170,4 +169,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
