@@ -198,6 +198,32 @@
                 </div>
             </div>
         </section>
+
+        <!-- GEMINI AI ESTIMATOR SECTION -->
+        <section id="estimator" class="py-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-custom-blue">✨ Công Cụ Ước Tính Vật Tư AI</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Mô tả dự án của bạn (ví dụ: "làm hàng rào dài 10m, cao 1.5m"), và trợ lý AI của chúng tôi sẽ gợi ý vật tư cần thiết!</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                        <textarea id="project-description" class="w-full h-28 p-4 border border-gray-300 rounded-md focus:ring-2 focus:ring-custom-blue focus:outline-none" placeholder="Nhập mô tả dự án của bạn ở đây..."></textarea>
+                        <button id="estimate-button" class="mt-4 w-full bg-custom-red text-white font-bold py-3 px-8 rounded-lg hover:bg-custom-red-dark transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-magic mr-2"></i>
+                            Ước Tính Ngay
+                        </button>
+                    </div>
+                    <div id="estimator-result" class="mt-6 bg-white p-6 rounded-lg shadow-md min-h-[100px] border border-gray-200" style="display: none;">
+                        <div id="loading-indicator" class="text-center" style="display: none;">
+                            <i class="fas fa-spinner fa-spin fa-2x text-custom-blue"></i>
+                            <p class="mt-2 text-gray-600">Trợ lý AI đang tính toán, vui lòng chờ trong giây lát...</p>
+                        </div>
+                        <div id="result-content" class="prose max-w-none"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -350,6 +376,84 @@ document.addEventListener('DOMContentLoaded', function() {
     if (copyrightYearEl) {
         copyrightYearEl.textContent = new Date().getFullYear();
     }
+
+    // --- GEMINI AI ESTIMATOR ---
+    const estimateButton = document.getElementById('estimate-button');
+    const projectDescription = document.getElementById('project-description');
+    const estimatorResult = document.getElementById('estimator-result');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const resultContent = document.getElementById('result-content');
+
+    estimateButton.addEventListener('click', async () => {
+        const description = projectDescription.value.trim();
+        if (!description) {
+            alert('Vui lòng nhập mô tả dự án của bạn.');
+            return;
+        }
+
+        // Show loading state
+        estimatorResult.style.display = 'block';
+        loadingIndicator.style.display = 'block';
+        resultContent.innerHTML = '';
+        estimateButton.disabled = true;
+        estimateButton.classList.add('opacity-50', 'cursor-not-allowed');
+
+        const prompt = `Bạn là một chuyên gia tư vấn vật liệu xây dựng cho công ty sắt thép Nhật Thắng tại Vũng Tàu, Việt Nam. Nhiệm vụ của bạn là giúp khách hàng ước tính vật tư cần thiết cho dự án của họ dựa trên mô tả.
+
+    Danh mục sản phẩm của chúng tôi bao gồm: Thép Tấm, Thép Hình (I, U, V, H), Thép Ống, Thép Hộp, Thép Láp, Inox, Lưới, và các loại Phụ Kiện.
+
+    Dựa trên mô tả dự án sau đây từ khách hàng, hãy phân tích và đưa ra danh sách các vật liệu gợi ý.
+    Mô tả dự án: "${description}"
+
+    Vui lòng trả lời bằng tiếng Việt. Trình bày kết quả dưới dạng danh sách rõ ràng, có gạch đầu dòng hoặc đánh số. Với mỗi mục, hãy nêu rõ sản phẩm gợi ý, lý do ngắn gọn và số lượng ước tính. Nếu yêu cầu không rõ ràng, hãy hỏi thêm chi tiết để có thể tư vấn chính xác hơn. Luôn giữ thái độ thân thiện, hữu ích và chuyên nghiệp. Kết thúc câu trả lời bằng một lưu ý rằng đây chỉ là ước tính sơ bộ và khách hàng nên liên hệ trực tiếp để có báo giá chính xác.`;
+        
+        try {
+            const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key is not needed for gemini-2.0-flash
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            
+            let text = 'Đã có lỗi xảy ra, vui lòng thử lại.';
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                text = result.candidates[0].content.parts[0].text;
+            }
+
+            // Simple markdown to HTML conversion
+            let htmlResult = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')     // Italic
+                .replace(/^- (.*$)/gim, '<li class="ml-4">$1</li>') // List items
+                .replace(/(\r\n|\n|\r)/g, '<br>')
+                .replace(/<br><li/g, '<li'); // Clean up extra breaks
+                
+            htmlResult = `<ul>${htmlResult}</ul>`;
+
+            resultContent.innerHTML = htmlResult;
+
+        } catch (error) {
+            console.error('Error calling Gemini API:', error);
+            resultContent.innerHTML = '<p class="text-red-500">Đã có lỗi xảy ra khi kết nối với trợ lý AI. Vui lòng thử lại sau.</p>';
+        } finally {
+            // Hide loading state
+            loadingIndicator.style.display = 'none';
+            estimateButton.disabled = false;
+            estimateButton.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+    });
 });
 </script>
 
