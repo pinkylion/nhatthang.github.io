@@ -130,3 +130,9 @@ body {
     background-position: center; /* Căn giữa ảnh */
     opacity: 1; /* Độ mờ đã được bỏ, hình ảnh rõ hoàn toàn */
 }
+
+/* Active nav link style for the current page */
+.nav-active {
+    color: #FFD700;
+    font-weight: 600;
+}
