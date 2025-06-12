@@ -13,8 +13,55 @@
 </head>
 <body class="text-gray-800">
 
+    <!-- HEADER (copy từ index.html, chỉnh đường dẫn) -->
     <header class="bg-custom-blue shadow-md sticky top-0 z-50">
-       
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="flex items-center space-x-3">
+                        <img class="h-20 w-20 rounded-md object-cover" src="../images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
+                    </a>
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center h-full space-x-10">
+                    <a href="../index.html" class="text-white hover:text-custom-yellow transition duration-300">Trang chủ</a>
+                    <a href="../gioi-thieu.html" class="text-white hover:text-custom-yellow transition duration-300">Giới thiệu</a>
+                    <div class="relative group h-full flex items-center">
+                        <a href="../san-pham.html" class="text-white hover:text-custom-yellow transition duration-300 flex items-center cursor-pointer h-full">
+                            Sản phẩm <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white rounded-md shadow-lg py-1 z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="../san-pham.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tất Cả Sản Phẩm</a>
+                            <a href="thep-tam.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Tấm</a>
+                            <a href="thep-hinh.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Hình</a>
+                            <a href="thep-ong.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-semibold text-custom-yellow">Thép Ống</a>
+                            <a href="thep-hop.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Hộp</a>
+                            <a href="thep-lap.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thép Láp</a>
+                            <a href="inox.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inox</a>
+                            <a href="luoi.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Lưới</a>
+                            <a href="phu-kien.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Phụ Kiện</a>
+                        </div>
+                    </div>
+                    <a href="../dich-vu.html" class="text-white hover:text-custom-yellow transition duration-300">Dịch vụ</a>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-custom-yellow focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-custom-blue">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="../index.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Trang chủ</a>
+                <a href="../gioi-thieu.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Giới thiệu</a>
+                <a href="../san-pham.html" class="block text-white bg-custom-blue-dark px-3 py-2 rounded-md font-semibold">Sản phẩm</a>
+                <a href="../dich-vu.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Dịch vụ</a>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -146,16 +193,52 @@
         </section>
     </main>
 
-   
+    <!-- FOOTER (copy từ index.html, chỉnh đường dẫn) -->
     <footer id="lienhe" class="bg-custom-blue text-white">
-       
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Branding -->
+                <div class="md:col-span-1">
+                    <a href="../index.html" class="flex items-center space-x-4 mb-4">
+                        <img class="h-24 w-24 rounded-md object-cover" src="../images/logo-nhat-thang.webp" alt="Logo Công Ty TNHH Nhật Thắng">
+                        <h3 class="text-3xl font-bold tracking-wider">CÔNG TY TNHH <span class="whitespace-nowrap">NHẬT THẮNG</span></h3>
+                    </a>
+                </div>
+                <!-- Contact Info -->
+                <div class="md:col-span-1">
+                    <h4 class="font-semibold text-lg mb-4">Thông Tin Liên Hệ</h4>
+                    <p class="text-gray-300 flex items-start mb-2"><i class="fas fa-map-marker-alt w-5 mr-3 mt-1"></i><span>665 Đường 30 tháng 4, Phường Rạch Dừa, Thành Phố Vũng Tàu</span></p>
+                    <p class="text-gray-300 flex items-center mb-2"><i class="fas fa-envelope w-5 mr-3"></i><a href="mailto:nhatthangvt@gmail.com" class="hover:text-custom-yellow">nhatthangvt@gmail.com</a></p>
+                    <p class="text-gray-300 flex items-center mb-2"><i class="fas fa-phone w-5 mr-3"></i><span>Hotline: <a href="tel:0903842182" class="hover:text-custom-yellow">0903842182</a></span></p>
+                    <p class="text-gray-300 flex items-center mb-2"><i class="fas fa-headset w-5 mr-3"></i><span>Phòng kinh doanh: <a href="tel:0812738838" class="hover:text-custom-yellow">0812738838</a></span></p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">© 2000 - <span id="copyright-year"></span> CÔNG TY TNHH NHẬT THẮNG. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Floating Action Buttons -->
+    <!-- Floating Action Buttons (copy từ index.html, chỉnh đường dẫn nếu cần) -->
     <div class="fab-container">
+        <a href="tel:0903842182" class="fab-icon fab-call" aria-label="Gọi điện thoại" target="_blank">
+            <i class="fas fa-phone fa-lg"></i>
+        </a>
+        <a href="https://zalo.me/0812738838" class="fab-icon fab-zalo" aria-label="Chat Zalo" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png" alt="Zalo Logo" class="w-8 h-8 object-contain">
+        </a>
+        <a href="mailto:nhatthangvt@gmail.com" class="fab-icon fab-email" aria-label="Gửi Email" target="_blank">
+            <i class="fas fa-envelope fa-lg"></i>
+        </a>
+        <a href="https://www.facebook.com/share/12KqXiZTsYd/" class="fab-icon fab-facebook" aria-label="Facebook" target="_blank">
+            <i class="fab fa-facebook-f fa-lg"></i>
+        </a>
+        <a href="https://maps.app.goo.gl/TDavrGWDazShqv9b8?g_st=afm" class="fab-icon fab-map" aria-label="Xem bản đồ" target="_blank">
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+        </a>
     </div>
 
-    <!-- Pop up giống index.html (AI estimator) -->
+    <!-- Popup estimator (copy từ index.html, giữ nguyên) -->
     <div id="popup-estimator" class="fixed inset-0 bg-black/40 z-[9999] hidden items-center justify-center">
         <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
             <button id="close-popup" class="absolute top-3 right-3 text-gray-500 hover:text-custom-red text-xl"><i class="fas fa-times"></i></button>
@@ -175,34 +258,53 @@
         </div>
     </div>
 
+    <!-- Script (copy từ index.html, chỉnh đường dẫn nếu cần) -->
     <script>
-    // Slider logic cho từng slider sản phẩm
-    function setupSlider(sliderClass, dotClass) {
-        const slider = document.querySelector('.' + sliderClass);
-        const dots = document.querySelectorAll('.' + dotClass);
-        if (!slider || dots.length === 0) return;
-        let idx = 0;
-        const total = slider.children.length;
-        function showSlide(i) {
-            slider.style.transform = `translateX(-${i * 100}%)`;
-            dots.forEach((d, j) => d.classList.toggle('bg-custom-blue', j === i));
-        }
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                idx = i;
-                showSlide(idx);
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
             });
-        });
-        showSlide(idx);
-        setInterval(() => {
-            idx = (idx + 1) % total;
+        }
+        // Set copyright year
+        const copyrightYearEl = document.getElementById('copyright-year');
+        if (copyrightYearEl) {
+            copyrightYearEl.textContent = new Date().getFullYear();
+        }
+        // Slider logic cho từng slider sản phẩm
+        function setupSlider(sliderClass, dotClass) {
+            const slider = document.querySelector('.' + sliderClass);
+            const dots = document.querySelectorAll('.' + dotClass);
+            if (!slider || dots.length === 0) return;
+            let idx = 0;
+            const total = slider.children.length;
+            function showSlide(i) {
+                slider.style.transform = `translateX(-${i * 100}%)`;
+                dots.forEach((d, j) => d.classList.toggle('bg-custom-blue', j === i));
+            }
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    idx = i;
+                    showSlide(idx);
+                });
+            });
             showSlide(idx);
-        }, 3500);
-    }
-    setupSlider('thepong-slider', 'thepong-dot');
-    setupSlider('thephanh-slider', 'thephanh-dot');
-    setupSlider('ongkemduc-slider', 'ongkemduc-dot');
-    setupSlider('ongkemhan-slider', 'ongkemhan-dot');
+            setInterval(() => {
+                idx = (idx + 1) % total;
+                showSlide(idx);
+            }, 3500);
+        }
+        setupSlider('thepong-slider', 'thepong-dot');
+        setupSlider('thephanh-slider', 'thephanh-dot');
+        setupSlider('ongkemduc-slider', 'ongkemduc-dot');
+        setupSlider('ongkemhan-slider', 'ongkemhan-dot');
 
     </script>
     <script src="../js/script.js"></script>
