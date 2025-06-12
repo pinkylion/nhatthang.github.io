@@ -95,40 +95,52 @@ body {
 
 /* 4. HERO SECTION (PHẦN NỀN XANH DƯỚI THANH ĐIỀU HƯỚNG)
 /* ================================================================= */
-/* Lớp này tạo một lớp giả ::before để chứa ảnh nền, giúp tách biệt với nội dung. */
+/* Đảm bảo banner luôn cùng chiều cao và căn giữa nội dung */
 .hero-section-bg {
     position: relative;
-    z-index: 1; /* Đảm bảo nội dung chữ nổi lên trên */
-
-    /* Ghi đè padding của Tailwind để tăng chiều cao banner.
-       Lưu ý: Cần có !important để ghi đè các lớp như py-24, py-32 trong HTML. */
-    padding-top: 12.92rem !important; /* Tăng thêm 40% từ 7.8rem */
-    padding-bottom: 12.92rem !important;
+    z-index: 1;
+    min-height: 340px; /* Chiều cao tối thiểu cho mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Xóa padding-top/bottom cũ */
+    padding: 0 !important;
 }
 
-/* Điều chỉnh padding cho màn hình lớn hơn (>=768px) */
 @media (min-width: 768px) {
     .hero-section-bg {
-        padding-top: 16.56rem !important; /* Tăng thêm 40% từ 10.4rem */
-        padding-bottom: 16.56rem !important;
+        min-height: 480px; /* Chiều cao cho màn hình lớn hơn */
+    }
+}
+@media (min-width: 1024px) {
+    .hero-section-bg {
+        min-height: 560px; /* Chiều cao cho desktop */
     }
 }
 
 .hero-section-bg::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1; /* Đặt ảnh nền phía sau nội dung */
-
-    /* Đường dẫn đến hình ảnh mặt tiền công ty */
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
     background-image: url('../images/banner/mat-tien-cong-ty-nhat-thang.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+}
 
-    background-size: cover; /* Đảm bảo ảnh lấp đầy không gian */
-    background-position: center; /* Căn giữa ảnh */
-    opacity: 1; /* Độ mờ đã được bỏ, hình ảnh rõ hoàn toàn */
+/* Đảm bảo nội dung chữ trong banner căn giữa */
+.hero-section-bg > .container,
+.hero-section-bg > div,
+.hero-section-bg > .text-center {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    position: relative;
 }
 
 /* Active nav link style for the current page */
