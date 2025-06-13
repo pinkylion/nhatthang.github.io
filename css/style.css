@@ -148,3 +148,8 @@ body {
     color: #FFD700;
     font-weight: 600;
 }
+
+/* Nền màu vàng kim/vàng đất cho thanh copyright */
+.bg-copyright-yellow {
+    background-color: #FFD700; /* vàng kim, có thể đổi sang #E1B169 nếu muốn vàng đất */
+}
