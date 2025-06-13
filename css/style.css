@@ -153,3 +153,10 @@ body {
 .bg-copyright-yellow {
     background-color: #FFD700; /* vàng kim */
 }
+
+.bg-footer-bottom {
+    background-color: #E1B169; /* vàng đất */
+}
+.footer-bottom {
+    width: 100%;
+}
