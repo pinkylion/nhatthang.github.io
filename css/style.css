@@ -157,3 +157,14 @@ body {
 .footer-bottom {
     width: 100%;
 }
+
+/* Ví dụ nếu có các custom class, thêm vào đây: */
+/*
+.bg-custom-blue { background-color: #1e3a8a; }
+.bg-custom-yellow { background-color: #fbbf24; }
+.bg-footer-bottom { background-color: #f3f4f6; }
+.fab-container { ... }
+.fab-icon { ... }
+*/
+
+/* Nếu không có CSS inline, giữ nguyên file này */

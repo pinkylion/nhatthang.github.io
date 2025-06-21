@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // --- RESPONSIVE NAVIGATION ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -168,4 +168,84 @@ document.addEventListener('DOMContentLoaded', function() {
             estimateButton.classList.remove('opacity-50', 'cursor-not-allowed');
         }
     });
+
+    // Mobile product dropdown
+    const mobileProductMenuBtn = document.getElementById('mobile-product-menu-btn');
+    const mobileProductDropdown = document.getElementById('mobile-product-dropdown');
+    if (mobileProductMenuBtn && mobileProductDropdown) {
+        mobileProductMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileProductDropdown.classList.toggle('hidden');
+        });
+    }
+
+    // Slider logic cho từng slider sản phẩm
+    function setupSlider(sliderClass, dotClass) {
+        const slider = document.querySelector('.' + sliderClass);
+        const dots = document.querySelectorAll('.' + dotClass);
+        if (!slider || dots.length === 0) return;
+        let idx = 0;
+        const total = slider.children.length;
+        function showSlide(i) {
+            slider.style.transform = `translateX(-${i * 100}%)`;
+            dots.forEach((d, j) => d.classList.toggle('bg-custom-blue', j === i));
+        }
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                idx = i;
+                showSlide(idx);
+            });
+        });
+        showSlide(idx);
+        setInterval(() => {
+            idx = (idx + 1) % total;
+            showSlide(idx);
+        }, 3500);
+    }
+
+    // Danh sách các slider và dot class cần setup
+    [
+        // thep-tam.html
+        ['theptamtron-slider', 'theptamtron-dot'],
+        ['theptamkem-slider', 'theptamkem-dot'],
+        ['theptamgan-slider', 'theptamgan-dot'],
+        // thep-hinh.html
+        ['thephinhh-slider', 'thephinhh-dot'],
+        ['thephinhi-slider', 'thephinhi-dot'],
+        ['thephinhv-slider', 'thephinhv-dot'],
+        ['thephinhu-slider', 'thephinhu-dot'],
+        // thep-hop.html
+        ['thephopvuong-slider', 'thephopvuong-dot'],
+        ['thephopcn-slider', 'thephopcn-dot'],
+        ['thephopvuongkem-slider', 'thephopvuongkem-dot'],
+        ['thephopcnkem-slider', 'thephopcnkem-dot'],
+        // thep-ong.html
+        ['thepong-slider', 'thepong-dot'],
+        ['thephanh-slider', 'thephanh-dot'],
+        ['ongkemduc-slider', 'ongkemduc-dot'],
+        ['ongkemhan-slider', 'ongkemhan-dot'],
+        // thep-dac.html
+        ['theptrondac-slider', 'theptrondac-dot'],
+        ['thepvuongdac-slider', 'thepvuongdac-dot'],
+        ['theptronxaydung-slider', 'theptronxaydung-dot'],
+        // luoi.html
+        ['luoib40-slider', 'luoib40-dot'],
+        ['luoimatcao-slider', 'luoimatcao-dot'],
+        ['luoigrating-slider', 'luoigrating-dot'],
+        ['luoiovuong-slider', 'luoiovuong-dot'],
+        // phu-kien.html
+        ['co-slider', 'co-dot'],
+        ['te-slider', 'te-dot'],
+        ['bau-giam-slider', 'bau-giam-dot'],
+        ['chenhan-slider', 'chenhan-dot'],
+        ['matbich-slider', 'matbich-dot'],
+        ['mangsong-slider', 'mangsong-dot'],
+        ['vanthuyluc-slider', 'vanthuyluc-dot'],
+        ['roongapluc-slider', 'roongapluc-dot'],
+        ['khoaluoigrating-slider', 'khoaluoigrating-dot'],
+        ['mangtruot-slider', 'mangtruot-dot'],
+        ['banhxecualua-slider', 'banhxecualua-dot'],
+        ['chotcua-slider', 'chotcua-dot'],
+        ['banlecua-slider', 'banlecua-dot'],
+    ].forEach(([slider, dot]) => setupSlider(slider, dot));
 });
