@@ -346,35 +346,6 @@
     </div>
 
     <!-- Script (slider logic, copyright, popup,...) -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuButton.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                }
-            });
-        }
-        // Mobile product dropdown
-        const mobileProductMenuBtn = document.getElementById('mobile-product-menu-btn');
-        const mobileProductDropdown = document.getElementById('mobile-product-dropdown');
-        if (mobileProductMenuBtn && mobileProductDropdown) {
-            mobileProductMenuBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                mobileProductDropdown.classList.toggle('hidden');
-            });
-        }
-        // Set copyright year
-        const copyrightYearEl = document.getElementById('copyright-year');
-        if (copyrightYearEl) {
-            copyrightYearEl.textContent = new Date().getFullYear();
-        }
-    </script>
     <script src="../js/script.js"></script>
 </body>
 </html>
