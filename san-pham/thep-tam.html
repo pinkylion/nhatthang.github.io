@@ -258,24 +258,38 @@
 
     <!-- Script (copy từ index.html, chỉnh đường dẫn nếu cần) -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuButton.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                }
-            });
-        }
-        // Set copyright year
-        const copyrightYearEl = document.getElementById('copyright-year');
-        if (copyrightYearEl) {
-            copyrightYearEl.textContent = new Date().getFullYear();
-        }
+        // Mobile menu toggle (đồng bộ với index.html)
+        document.addEventListener('DOMContentLoaded', function() {
+            var mobileMenuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    var icon = mobileMenuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+            }
+            // Mobile product dropdown đồng bộ với index.html
+            var toggleBtn = document.getElementById('mobile-product-toggle');
+            var dropdown = document.getElementById('mobile-product-dropdown');
+            var chevron = document.getElementById('mobile-product-chevron');
+            if (toggleBtn && dropdown && chevron) {
+                toggleBtn.addEventListener('click', function() {
+                    dropdown.classList.toggle('hidden');
+                    chevron.classList.toggle('fa-chevron-down');
+                    chevron.classList.toggle('fa-chevron-up');
+                    chevron.classList.toggle('rotate-180');
+                });
+            }
+            // Set copyright year
+            var copyrightYearEl = document.getElementById('copyright-year');
+            if (copyrightYearEl) {
+                copyrightYearEl.textContent = new Date().getFullYear();
+            }
+        });
         // Slider logic cho từng slider sản phẩm
         function setupSlider(sliderClass, dotClass) {
             const slider = document.querySelector('.' + sliderClass);
@@ -302,21 +316,6 @@
         setupSlider('theptamtron-slider', 'theptamtron-dot');
         setupSlider('theptamkem-slider', 'theptamkem-dot');
         setupSlider('theptamgan-slider', 'theptamgan-dot');
-
-        // Mobile product dropdown đồng bộ với index.html
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggleBtn = document.getElementById('mobile-product-toggle');
-            var dropdown = document.getElementById('mobile-product-dropdown');
-            var chevron = document.getElementById('mobile-product-chevron');
-            if (toggleBtn && dropdown && chevron) {
-                toggleBtn.addEventListener('click', function() {
-                    dropdown.classList.toggle('hidden');
-                    chevron.classList.toggle('fa-chevron-down');
-                    chevron.classList.toggle('fa-chevron-up');
-                    chevron.classList.toggle('rotate-180');
-                });
-            }
-        });
     </script>
     <script src="../js/script.js"></script>
 </body>
