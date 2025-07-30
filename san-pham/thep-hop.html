@@ -58,21 +58,21 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="../index.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Trang chủ</a>
                 <a href="../gioi-thieu.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Giới thiệu</a>
-                <div class="relative">
-                    <button id="mobile-product-menu-btn" class="w-full text-left block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md font-semibold flex items-center justify-between">
-                        Sản phẩm
-                        <i class="fas fa-chevron-down ml-2"></i>
+                <div>
+                    <button id="mobile-product-toggle" type="button" class="w-full flex items-center justify-between text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md focus:outline-none">
+                        <span>Sản phẩm</span>
+                        <i id="mobile-product-chevron" class="fas fa-chevron-down ml-2 transition-transform duration-200"></i>
                     </button>
-                    <div id="mobile-product-dropdown" class="hidden bg-custom-blue mt-1 rounded-md shadow-lg">
-                        <a href="san-pham.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Tất Cả Sản Phẩm</a>
-                        <a href="thep-tam.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Thép Tấm</a>
-                        <a href="thep-hinh.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Thép Hình</a>
-                        <a href="thep-ong.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Thép Ống</a>
-                        <a href="thep-hop.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Thép Hộp</a>
-                        <a href="thep-dac.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Thép Đặc</a>
-                        <a href="inox.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Inox</a>
-                        <a href="luoi.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Lưới</a>
-                        <a href="phu-kien.html" class="block px-4 py-2 text-white hover:bg-custom-blue-dark">Phụ Kiện</a>
+                    <div id="mobile-product-dropdown" class="pl-6 mt-1 space-y-1 hidden">
+                        <a href="san-pham.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Tất Cả Sản Phẩm</a>
+                        <a href="thep-tam.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Tấm</a>
+                        <a href="thep-hinh.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Hình</a>
+                        <a href="thep-ong.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Ống</a>
+                        <a href="thep-hop.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Hộp</a>
+                        <a href="thep-dac.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Đặc</a>
+                        <a href="inox.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Inox</a>
+                        <a href="luoi.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Lưới</a>
+                        <a href="phu-kien.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Phụ Kiện</a>
                     </div>
                 </div>
                 <a href="../dich-vu.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Dịch vụ</a>
@@ -334,6 +334,21 @@
         setupSlider('thephopvuongkem-slider', 'thephopvuongkem-dot');
         setupSlider('thephopcnkem-slider', 'thephopcnkem-dot');
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggleBtn = document.getElementById('mobile-product-toggle');
+        var dropdown = document.getElementById('mobile-product-dropdown');
+        var chevron = document.getElementById('mobile-product-chevron');
+        if (toggleBtn && dropdown && chevron) {
+            toggleBtn.addEventListener('click', function() {
+                dropdown.classList.toggle('hidden');
+                chevron.classList.toggle('fa-chevron-down');
+                chevron.classList.toggle('fa-chevron-up');
+                chevron.classList.toggle('rotate-180');
+            });
+        }
+    });
+</script>
     <script src="../js/script.js"></script>
 </body>
 </html>
