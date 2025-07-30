@@ -67,7 +67,24 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="index.html" class="block text-white bg-custom-blue-dark px-3 py-2 rounded-md font-semibold">Trang chủ</a>
                 <a href="gioi-thieu.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Giới thiệu</a>
-                <a href="san-pham/san-pham.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Sản phẩm</a>
+                <!-- Sản phẩm với dropdown -->
+                <div>
+                    <button id="mobile-product-toggle" type="button" class="w-full flex items-center justify-between text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md focus:outline-none">
+                        <span>Sản phẩm</span>
+                        <i id="mobile-product-chevron" class="fas fa-chevron-down ml-2 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-product-dropdown" class="pl-6 mt-1 space-y-1 hidden">
+                        <a href="san-pham/san-pham.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Tất Cả Sản Phẩm</a>
+                        <a href="san-pham/thep-tam.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Tấm</a>
+                        <a href="san-pham/thep-hinh.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Hình</a>
+                        <a href="san-pham/thep-ong.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Ống</a>
+                        <a href="san-pham/thep-hop.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Hộp</a>
+                        <a href="san-pham/thep-dac.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Thép Đặc</a>
+                        <a href="san-pham/inox.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Inox</a>
+                        <a href="san-pham/luoi.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Lưới</a>
+                        <a href="san-pham/phu-kien.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md text-sm">Phụ Kiện</a>
+                    </div>
+                </div>
                 <a href="dich-vu.html" class="block text-white hover:bg-custom-blue-dark px-3 py-2 rounded-md">Dịch vụ</a>
             </div>
         </div>
@@ -226,5 +243,21 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+    // Toggle mobile "Sản phẩm" dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggleBtn = document.getElementById('mobile-product-toggle');
+        var dropdown = document.getElementById('mobile-product-dropdown');
+        var chevron = document.getElementById('mobile-product-chevron');
+        if (toggleBtn && dropdown && chevron) {
+            toggleBtn.addEventListener('click', function() {
+                dropdown.classList.toggle('hidden');
+                chevron.classList.toggle('fa-chevron-down');
+                chevron.classList.toggle('fa-chevron-up');
+                chevron.classList.toggle('rotate-180');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
