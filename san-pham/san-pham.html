@@ -347,6 +347,22 @@
 
     <!-- Script (slider logic, copyright, popup,...) -->
     <script src="../js/script.js"></script>
+    <script>
+    // Toggle mobile "Sản phẩm" dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('mobile-product-menu-btn');
+        var dropdown = document.getElementById('mobile-product-dropdown');
+        var chevron = btn ? btn.querySelector('i.fas') : null;
+        if (btn && dropdown && chevron) {
+            btn.addEventListener('click', function() {
+                dropdown.classList.toggle('hidden');
+                chevron.classList.toggle('fa-chevron-down');
+                chevron.classList.toggle('fa-chevron-up');
+                chevron.classList.toggle('rotate-180');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
 
