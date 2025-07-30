@@ -247,8 +247,21 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
     <script src="js/script.js"></script>
     <script>
-    // Toggle mobile "Sản phẩm" dropdown (đồng bộ với trang chủ)
     document.addEventListener('DOMContentLoaded', function() {
+        // Toggle mobile menu
+        var mobileMenuButton = document.getElementById('mobile-menu-button');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                var icon = mobileMenuButton.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+        // Toggle mobile "Sản phẩm" dropdown
         var toggleBtn = document.getElementById('mobile-product-toggle');
         var dropdown = document.getElementById('mobile-product-dropdown');
         var chevron = document.getElementById('mobile-product-chevron');
@@ -259,6 +272,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 chevron.classList.toggle('fa-chevron-up');
                 chevron.classList.toggle('rotate-180');
             });
+        }
+        // Set copyright year
+        var copyrightYearEl = document.getElementById('copyright-year');
+        if (copyrightYearEl) {
+            copyrightYearEl.textContent = new Date().getFullYear();
         }
     });
     </script>
