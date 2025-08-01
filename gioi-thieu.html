@@ -213,39 +213,8 @@
         </a>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- RESPONSIVE NAVIGATION ---
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileMenuButton.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-    });
+<script src="js/script.js"></script>
 
-    // --- DYNAMIC COPYRIGHT YEAR ---
-    const copyrightYearEl = document.getElementById('copyright-year');
-    if (copyrightYearEl) {
-        copyrightYearEl.textContent = new Date().getFullYear();
-    }
-
-    // Toggle mobile "Sản phẩm" dropdown (đồng bộ với index.html)
-    var toggleBtn = document.getElementById('mobile-product-toggle');
-    var dropdown = document.getElementById('mobile-product-dropdown');
-    var chevron = document.getElementById('mobile-product-chevron');
-    if (toggleBtn && dropdown && chevron) {
-        toggleBtn.addEventListener('click', function() {
-            dropdown.classList.toggle('hidden');
-            chevron.classList.toggle('fa-chevron-down');
-            chevron.classList.toggle('fa-chevron-up');
-            chevron.classList.toggle('rotate-180');
-        });
-    }
-});
-</script>
 
 </body>
 </html>
