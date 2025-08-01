@@ -169,17 +169,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Mobile product dropdown
-    const mobileProductMenuBtn = document.getElementById('mobile-product-menu-btn');
-    const mobileProductDropdown = document.getElementById('mobile-product-dropdown');
-    if (mobileProductMenuBtn && mobileProductDropdown) {
-        mobileProductMenuBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            mobileProductDropdown.classList.toggle('hidden');
+    // --- MOBILE "SẢN PHẨM" DROPDOWN ---
+    var toggleBtn = document.getElementById('mobile-product-toggle');
+    var dropdown = document.getElementById('mobile-product-dropdown');
+    var chevron = document.getElementById('mobile-product-chevron');
+    if (toggleBtn && dropdown && chevron) {
+        toggleBtn.addEventListener('click', function() {
+            dropdown.classList.toggle('hidden');
+            chevron.classList.toggle('fa-chevron-down');
+            chevron.classList.toggle('fa-chevron-up');
+            chevron.classList.toggle('rotate-180');
         });
     }
 
-    // Slider logic cho từng slider sản phẩm
+    // Một số trang dùng id khác cho nút dropdown sản phẩm mobile
+    var mobileProductMenuBtn = document.getElementById('mobile-product-menu-btn');
+    var mobileProductDropdown = document.getElementById('mobile-product-dropdown');
+    if (mobileProductMenuBtn && mobileProductDropdown) {
+        var chevron2 = mobileProductMenuBtn.querySelector('i.fas');
+        mobileProductMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileProductDropdown.classList.toggle('hidden');
+            if (chevron2) {
+                chevron2.classList.toggle('fa-chevron-down');
+                chevron2.classList.toggle('fa-chevron-up');
+                chevron2.classList.toggle('rotate-180');
+            }
+        });
+    }
+
+    // --- SLIDER LOGIC ---
     function setupSlider(sliderClass, dotClass) {
         const slider = document.querySelector('.' + sliderClass);
         const dots = document.querySelectorAll('.' + dotClass);
@@ -202,50 +221,56 @@ document.addEventListener('DOMContentLoaded', function () {
             showSlide(idx);
         }, 3500);
     }
+    // Các slider sản phẩm (tổng hợp từ các trang)
+    setupSlider('theptamtron-slider', 'theptamtron-dot');
+    setupSlider('theptamkem-slider', 'theptamkem-dot');
+    setupSlider('theptamgan-slider', 'theptamgan-dot');
+    setupSlider('thephinhh-slider', 'thephinhh-dot');
+    setupSlider('thephinhi-slider', 'thephinhi-dot');
+    setupSlider('thephinhv-slider', 'thephinhv-dot');
+    setupSlider('thephinhu-slider', 'thephinhu-dot');
+    setupSlider('thephopvuong-slider', 'thephopvuong-dot');
+    setupSlider('thephopcn-slider', 'thephopcn-dot');
+    setupSlider('thephopvuongkem-slider', 'thephopvuongkem-dot');
+    setupSlider('thephopcnkem-slider', 'thephopcnkem-dot');
+    setupSlider('theptrondac-slider', 'theptrondac-dot');
+    setupSlider('thepvuongdac-slider', 'thepvuongdac-dot');
+    setupSlider('theptronxaydung-slider', 'theptronxaydung-dot');
+    setupSlider('thepong-slider', 'thepong-dot');
+    setupSlider('thephanh-slider', 'thephanh-dot');
+    setupSlider('ongkemduc-slider', 'ongkemduc-dot');
+    setupSlider('ongkemhan-slider', 'ongkemhan-dot');
+    setupSlider('co-slider', 'co-dot');
+    setupSlider('te-slider', 'te-dot');
+    setupSlider('bau-giam-slider', 'bau-giam-dot');
+    setupSlider('chenhan-slider', 'chenhan-dot');
+    setupSlider('matbich-slider', 'matbich-dot');
+    setupSlider('mangsong-slider', 'mangsong-dot');
+    setupSlider('vanthuyluc-slider', 'vanthuyluc-dot');
+    setupSlider('roongapluc-slider', 'roongapluc-dot');
+    setupSlider('khoaluoigrating-slider', 'khoaluoigrating-dot');
+    setupSlider('mangtruot-slider', 'mangtruot-dot');
+    setupSlider('banhxecualua-slider', 'banhxecualua-dot');
+    setupSlider('chotcua-slider', 'chotcua-dot');
+    setupSlider('banlecua-slider', 'banlecua-dot');
+    setupSlider('luoib40-slider', 'luoib40-dot');
+    setupSlider('luoihan-slider', 'luoihan-dot');
+    setupSlider('luoikem-slider', 'luoikem-dot');
+    setupSlider('onginox-slider', 'onginox-dot');
+    setupSlider('hopinox-slider', 'hopinox-dot');
+    setupSlider('taminox-slider', 'taminox-dot');
+    setupSlider('cut-slider', 'cut-dot');
 
-    // Danh sách các slider và dot class cần setup
-    [
-        // thep-tam.html
-        ['theptamtron-slider', 'theptamtron-dot'],
-        ['theptamkem-slider', 'theptamkem-dot'],
-        ['theptamgan-slider', 'theptamgan-dot'],
-        // thep-hinh.html
-        ['thephinhh-slider', 'thephinhh-dot'],
-        ['thephinhi-slider', 'thephinhi-dot'],
-        ['thephinhv-slider', 'thephinhv-dot'],
-        ['thephinhu-slider', 'thephinhu-dot'],
-        // thep-hop.html
-        ['thephopvuong-slider', 'thephopvuong-dot'],
-        ['thephopcn-slider', 'thephopcn-dot'],
-        ['thephopvuongkem-slider', 'thephopvuongkem-dot'],
-        ['thephopcnkem-slider', 'thephopcnkem-dot'],
-        // thep-ong.html
-        ['thepong-slider', 'thepong-dot'],
-        ['thephanh-slider', 'thephanh-dot'],
-        ['ongkemduc-slider', 'ongkemduc-dot'],
-        ['ongkemhan-slider', 'ongkemhan-dot'],
-        // thep-dac.html
-        ['theptrondac-slider', 'theptrondac-dot'],
-        ['thepvuongdac-slider', 'thepvuongdac-dot'],
-        ['theptronxaydung-slider', 'theptronxaydung-dot'],
-        // luoi.html
-        ['luoib40-slider', 'luoib40-dot'],
-        ['luoimatcao-slider', 'luoimatcao-dot'],
-        ['luoigrating-slider', 'luoigrating-dot'],
-        ['luoiovuong-slider', 'luoiovuong-dot'],
-        // phu-kien.html
-        ['co-slider', 'co-dot'],
-        ['te-slider', 'te-dot'],
-        ['bau-giam-slider', 'bau-giam-dot'],
-        ['chenhan-slider', 'chenhan-dot'],
-        ['matbich-slider', 'matbich-dot'],
-        ['mangsong-slider', 'mangsong-dot'],
-        ['vanthuyluc-slider', 'vanthuyluc-dot'],
-        ['roongapluc-slider', 'roongapluc-dot'],
-        ['khoaluoigrating-slider', 'khoaluoigrating-dot'],
-        ['mangtruot-slider', 'mangtruot-dot'],
-        ['banhxecualua-slider', 'banhxecualua-dot'],
-        ['chotcua-slider', 'chotcua-dot'],
-        ['banlecua-slider', 'banlecua-dot'],
-    ].forEach(([slider, dot]) => setupSlider(slider, dot));
+    // --- POPUP ESTIMATOR LOGIC (nếu có trên trang) ---
+    var popup = document.getElementById('popup-estimator');
+    var closePopupBtn = document.getElementById('close-popup');
+    if (popup && closePopupBtn) {
+        closePopupBtn.addEventListener('click', function() {
+            popup.classList.add('hidden');
+        });
+    }
+    // Nếu muốn mở popup từ nút nào đó, thêm logic tại đây (ví dụ: document.getElementById('open-popup').addEventListener...)
+
+    // --- THÊM LOGIC KHÁC NẾU CẦN ---
+    // ...existing code...
 });
