@@ -256,74 +256,7 @@
     </div>
 
     <!-- Script (slider logic, copyright, popup,...) -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuButton.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                }
-            });
-        }
-        // Set copyright year
-        const copyrightYearEl = document.getElementById('copyright-year');
-        if (copyrightYearEl) {
-            copyrightYearEl.textContent = new Date().getFullYear();
-        }
-        // Slider logic cho từng slider sản phẩm
-        function setupSlider(sliderClass, dotClass) {
-            const slider = document.querySelector('.' + sliderClass);
-            const dots = document.querySelectorAll('.' + dotClass);
-            if (!slider || dots.length === 0) return;
-            let idx = 0;
-            const total = slider.children.length;
-            function showSlide(i) {
-                slider.style.transform = `translateX(-${i * 100}%)`;
-                dots.forEach((d, j) => d.classList.toggle('bg-custom-blue', j === i));
-            }
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => {
-                    idx = i;
-                    showSlide(idx);
-                });
-            });
-            showSlide(idx);
-            setInterval(() => {
-                idx = (idx + 1) % total;
-                showSlide(idx);
-            }, 3500);
-        }
-        setupSlider('theptrondac-slider', 'theptrondac-dot');
-        setupSlider('thepvuongdac-slider', 'thepvuongdac-dot');
-        setupSlider('theptronxaydung-slider', 'theptronxaydung-dot');
-        // Mobile product dropdown
-        const mobileProductMenuBtn = document.getElementById('mobile-product-menu-btn');
-        const mobileProductDropdown = document.getElementById('mobile-product-dropdown');
-        if (mobileProductMenuBtn && mobileProductDropdown) {
-            mobileProductMenuBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                mobileProductDropdown.classList.toggle('hidden');
-            });
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            var toggleBtn = document.getElementById('mobile-product-toggle');
-            var dropdown = document.getElementById('mobile-product-dropdown');
-            var chevron = document.getElementById('mobile-product-chevron');
-            if (toggleBtn && dropdown && chevron) {
-                toggleBtn.addEventListener('click', function() {
-                    dropdown.classList.toggle('hidden');
-                    chevron.classList.toggle('fa-chevron-down');
-                    chevron.classList.toggle('fa-chevron-up');
-                    chevron.classList.toggle('rotate-180');
-                });
-            }
-        });
-    </script>
+    
     <script src="../js/script.js"></script>
 </body>
 </html>
