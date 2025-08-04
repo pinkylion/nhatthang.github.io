@@ -101,12 +101,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- GEMINI AI ESTIMATOR ---
-    const estimateButton = document.getElementById('estimate-button');
-    const projectDescription = document.getElementById('project-description');
-    const estimatorResult = document.getElementById('estimator-result');
-    const loadingIndicator = document.getElementById('loading-indicator');
-    const resultContent = document.getElementById('result-content');
+const estimateButton = document.getElementById('estimate-button');
+const projectDescription = document.getElementById('project-description');
+const estimatorResult = document.getElementById('estimator-result');
+const loadingIndicator = document.getElementById('loading-indicator');
+const resultContent = document.getElementById('result-content');
 
+if (estimateButton && projectDescription && estimatorResult && loadingIndicator && resultContent) {
     estimateButton.addEventListener('click', async () => {
         const description = projectDescription.value.trim();
         if (!description) {
@@ -172,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             estimateButton.classList.remove('opacity-50', 'cursor-not-allowed');
         }
     });
+}
 
     // --- MOBILE "SẢN PHẨM" DROPDOWN ---
     var toggleBtn = document.getElementById('mobile-product-toggle');
